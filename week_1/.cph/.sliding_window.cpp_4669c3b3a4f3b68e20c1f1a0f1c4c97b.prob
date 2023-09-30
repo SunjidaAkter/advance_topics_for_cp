@@ -1,0 +1,1 @@
+{"name":"Local: sliding_window","url":"f:\\Projects\\Phitron\\XPSC\\week_1\\sliding_window.cpp","tests":[{"id":1696072912105,"input":"6\n5 2 6 1 3 4\n3","output":"13"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\Projects\\Phitron\\XPSC\\week_1\\sliding_window.cpp","group":"local","local":true}
