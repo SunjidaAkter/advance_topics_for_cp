@@ -5,19 +5,16 @@ typedef pair<int,int>pii;
 int main(){
     int t;cin>>t;
     while(t--){
-        int n,sum=0;cin>>n;
-        vector<int>v;
+        int n;cin>>n;
+        int a[n];
+        for(int i=0;i<n;i++)cin>>a[i];
+        int indx=0;
         for(int i=0;i<n;i++){
-            int x;cin>>x;
-            v.push_back(x);
-        };
-        for(int i=1;i<=v.size();i++){
-            if(v[i-1]>i){
-                v.insert(v.begin()+(i-1),i);
-                sum++;
+            if(a[i]>indx+1+i){
+                indx+=(a[i]-(i+indx+1));
             }
         }
-        cout<<sum<<endl;
+        cout<<indx<<endl;
     }
     return 0;
 }
