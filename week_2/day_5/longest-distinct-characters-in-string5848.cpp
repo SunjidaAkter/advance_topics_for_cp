@@ -22,25 +22,20 @@ int longestSubstrDistinctChars (string s)
 {
     // your code here
     int n=s.size();
-    int i=0,j=0,mx=0;
-    int fr[26]={0};
-    int unq=0;
-    while(j<n){
-        fr[s[j]-'a']++;
-        if(fr[s[j]-'a']==1)unq++;
-        if(fr[s[j]-'a']>1){
-            fr[s[j]-'a']--;
-            while(fr[s[i]-'a']!=0){
-                fr[s[i]-'a']--;
-                i++;
-            }
-            unq=1;
-            fr[s[j]-'a']=1;
+    int mx=0,i=0;
+    map<char,int>mp;
+    while(i<n){
+        if(mp.count(s[i])==0){
+            mp.insert({s[i],i});
+            i++;
+        }else{
+            int tmp=mp.size();
+            mx=max(mx,tmp);
+            i=mp[s[i]]+1;
+            mp.clear();
         }
-        if(mx<unq){
-            mx=unq;
-        }
-        j++;
     }
+    int tmp=mp.size();
+    mx=max(mx,tmp);
     return mx;
 }
