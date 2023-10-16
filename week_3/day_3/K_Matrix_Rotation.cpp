@@ -15,18 +15,9 @@ typedef pair<int,int>pii;
 void solve(){
     int a[2][2];
     for(int i=0;i<2;i++)for(int j=0;j<2;j++)cin>>a[i][j];
-    // for(int i=0;i<2;i++){
-    //     for(int j=0;j<2;j++){
-    //         cout<<a[i][j]<<" ";
-    //     }
-    //     cout<<nl;
-    // }
     bool flag=true;
     if((a[0][0]<a[0][1]&&a[1][0]>a[1][1])||(a[0][0]>a[0][1]&&a[1][0]<a[1][1]))flag=false;
     if((a[0][0]<a[1][0]&&a[0][1]>a[1][1])||(a[0][0]>a[1][0]&&a[0][1]<a[1][1]))flag=false;
-    // for(int i=0;i<2;i++){
-    //     if(a[0][i]>a[1][i])flag=false;
-    // }
     if(flag)yes;
     else no;
 }    
