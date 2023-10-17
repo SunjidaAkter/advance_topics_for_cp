@@ -14,31 +14,21 @@ typedef pair<int,int>pii;
 # define FAST ios_base :: sync_with_stdio (false) ; cin.tie(0) ; cout.tie(0)
 void solve(){
     int n;cin>>n;
-    char x,y;cin>>x>>y;
-    vector<string>v;
-    string str="";
-    str+=x;
-    str+=y;
-    // cout<<str<<" - ";
-    v.push_back(str);
-    for(int i=2;i<n;i++){
-        char z;cin>>z;
-        // string strr=str;
-        if(str[0]==z){
-            str[1]=z;
-            continue;
+    string s;cin>>s;
+    int sum=0;
+    set<char>st;
+    if(n!=5)no;
+    else{
+        for(int i=0;i<5;i++){
+            if(s[i]=='T'||s[i]=='i'||s[i]=='m'||s[i]=='u'||s[i]=='r'){
+                st.insert(s[i]);
+                sum++;
+            }
+            else break;
         }
-        str[0]=str[1];
-        str[1]=z;
-        // cout<<v.back()<<" + "<<str<<" ";
-        if(v.back()==str){
-            // str[1]=z;
-            continue;
-        }
-        // cout<<str<<" - ";
-        v.push_back(str);
+        if(sum==5&&st.size()==sum)yes;
+        else no;
     }
-    cout<<v.size()<<nl;
 }
 int main(){
     FAST;
