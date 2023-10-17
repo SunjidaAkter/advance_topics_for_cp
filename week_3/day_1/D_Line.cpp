@@ -13,33 +13,34 @@ typedef pair<int,int>pii;
 #define forl(ty,var,str,end) for(ty var=str; var<end; var++)
 # define FAST ios_base :: sync_with_stdio (false) ; cin.tie(0) ; cout.tie(0)
 void solve(){
-    int n;cin>>n;
+    ll n;cin>>n;
     string s;cin>>s;
-    int sum=0;
-    for(int i=0;i<s.size();i++){
+    ll sum=0;
+    for(ll i=0;i<s.size();i++){
         if(s[i]=='L')sum+=(i);
         if(s[i]=='R')sum+=(s.size()-(i+1));
     }
-    vector<int>v;
-    for(int i=0;i<s.size()/2;i++){
+    vector<ll>v;
+    ll i=0,j=n-1;
+    while(i<j){
         if(s[i]=='L'){
-            sum+=(s.size()-(i+1));
+            sum+=((s.size()-(i+1))-(i));
+            v.push_back(sum);
+        }    
+        if(s[j]=='R'){
+            sum+=(j-(s.size()-(j+1)));
             v.push_back(sum);
         }
+        i++;j--;    
     }
-    for(int i=(s.size()/2)+1;i<n;i++){
-        if(s[i]=='R')v.push_back(sum+=(i));
-        // else v.push_back(sum);
+    if(n==1)cout<<0<<nl;
+    else {
+        while(v.size()<n){
+            v.push_back(sum);
+        }
+        for(ll val:v)cout<<val<<" ";
+        cout<<nl;
     }
-    // int x=v[v.size()-1];
-    cout<<v.size()<<"c";
-    // while(v.size()<=n){
-    //     v.push_back(x);
-    // }
-    for(int i=0;i<v.size();i++){
-        cout<<v[i]<<" ";
-    }
-    cout<<nl;
 }
 int main(){
     FAST;
