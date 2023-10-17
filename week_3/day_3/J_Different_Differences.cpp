@@ -18,17 +18,21 @@ void solve(){
         for(int i=0;i<k;i++)cout<<i+1<<" ";
         cout<<nl;
     }else{
-        cout<<1<<" "<<2<<" ";
-        int j=4;   
-        for(int i=3;i<k;i++){
-            while(n-j<k-i){
-                j--;
+        if(k==1)cout<<1<<nl;
+        else if(k==2)cout<<1<<" "<<n<<nl;
+        else{
+            cout<<1<<" "<<2<<" ";
+            int j=4;   
+            for(int i=3;i<k;i++){
+                while(n-j<k-i){
+                    j--;
+                }
+                cout<<j<<" ";
+                j+=i;
             }
-            cout<<j<<" ";
-            j+=i;
-        }
-        cout<<n;
-        cout<<nl;
+            cout<<n;
+            cout<<nl;
+        } 
     }
 }
 int main(){
