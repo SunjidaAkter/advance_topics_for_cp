@@ -17,19 +17,23 @@ void solve(){
     int n;cin>>n;
     int a[n];
     vector<int>v;
-    int mx=0,sum=0;
+    ll mx=0,sum=0;
+    vector<ll>st;
     for(int i=0;i<n;i++)cin>>a[i];
     for(int i=0;i<n-1;i++){
-        mx=max(mx,a[i]);
-        if(a[i]==0){
-            sum+=mx;
-            // mx=0;
+        st.push_back(a[i]);
+        sort(st.begin(),st.end());
+        if(a[i]==0&&a[i+1]==0){
+            sum+=(st[st.size()-1]);
+            st.pop_back();
         }
         if(a[i]==0&&a[i+1]!=0){
-            sum+=mx;
-            mx=0;
+            sum+=(st[st.size()-1]);
+            st.clear();
         }
     }
+    if(a[n-1]==0&&st.empty())sum+=0;
+    else if(a[n-1]==0&&!st.empty())sum+=st[st.size()-1];
     c(sum);
 }
 int main(){
