@@ -14,7 +14,20 @@ typedef pair<int,int>pii;
 #define forl(ty,var,str,end) for(ty var=str; var<end; var++)
 # define FAST ios_base :: sync_with_stdio (false) ; cin.tie(0) ; cout.tie(0)
 void solve(){
-    
+    int n;cin>>n;
+    int a[n];
+    vector<int>v;
+    ll mx=0,sum=0;
+    priority_queue<ll,vector<ll>,less<ll>>pq;
+    for(int i=0;i<n;i++)cin>>a[i];
+    for(int i=0;i<n;i++){
+        pq.push(a[i]);
+        if(a[i]==0){
+            sum+=pq.top();
+            pq.pop();
+        }
+    }
+    c(sum);
 }
 int main(){
     FAST;
