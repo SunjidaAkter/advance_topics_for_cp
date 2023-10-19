@@ -22,7 +22,6 @@ void solve(){
     for(int i=0;i<n;i++)s1+=a[i];
     while(s+s1>sum){
         sum=((m)*(m+1)/2);
-        // cout<<m<<"m"<<sum<<" ";
         m++;
     }
     if(sum-s1==s)yes;
