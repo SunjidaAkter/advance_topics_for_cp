@@ -14,13 +14,15 @@ typedef pair<int,int>pii;
 #define forl(ty,var,str,end) for(ty var=str; var<end; var++)
 # define FAST ios_base :: sync_with_stdio (false) ; cin.tie(0) ; cout.tie(0)
 void solve(){
-    ll n;cin>>n;
-    ll cnt=0;
-    while(n>1){
-        n=n>>1;//*this is left shift;n/2
-        cnt++;
-    }
-    cout<<(1<<cnt)-1<<nl;//*this is right shift //n*2
+    int n;cin>>n;
+    int a[n];
+    int x=0;
+    for(int i=0;i<n;i++)cin>>a[i];
+    for(int i=0;i<n;i++)x=(x^a[i]);
+    if(n%2==0){
+        if(x==0)c(0);
+        else c(-1);
+    }else c(x);
 }
 int main(){
     FAST;

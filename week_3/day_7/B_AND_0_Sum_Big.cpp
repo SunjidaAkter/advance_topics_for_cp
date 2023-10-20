@@ -11,16 +11,14 @@ using namespace std;
 #define Yes cout<<"Yes"<<nl
 #define No cout<<"No"<<nl
 typedef pair<int,int>pii;
+const int mod=1e9+7;
 #define forl(ty,var,str,end) for(ty var=str; var<end; var++)
 # define FAST ios_base :: sync_with_stdio (false) ; cin.tie(0) ; cout.tie(0)
 void solve(){
-    ll n;cin>>n;
-    ll cnt=0;
-    while(n>1){
-        n=n>>1;//*this is left shift;n/2
-        cnt++;
-    }
-    cout<<(1<<cnt)-1<<nl;//*this is right shift //n*2
+    ll x,y;cin>>x>>y;
+    ll ans=1;
+    while(y--)ans=((ans%mod)*(x%mod))%mod;
+    c(ans);
 }
 int main(){
     FAST;
