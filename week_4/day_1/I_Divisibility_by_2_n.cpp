@@ -24,7 +24,6 @@ void solve(){
             cnt++;tmp/=2;
         }
     }
-    // cout<<cnt<<nl;
     if(cnt>=n)c(0);
     else{
         int d=n-cnt;
@@ -42,9 +41,7 @@ void solve(){
             d-=val;
             ans++;
             if(d<=0)break;
-            // cout<<val<<" ";
         }
-        // cout<<nl;
         if(d>0)c(-1);
         else c(ans);
     }
