@@ -25,8 +25,6 @@ void solve(){
             ans+=(v[j]-v[i]);
             i++;j--;
         }
-    }else{
-        ans=0;
     }
     c(ans);
 }
