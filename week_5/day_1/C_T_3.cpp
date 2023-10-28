@@ -13,8 +13,34 @@ using namespace std;
 typedef pair<int,int>pii;
 #define forl(ty,var,str,end) for(ty var=str; var<end; var++)
 # define FAST ios_base :: sync_with_stdio (false) ; cin.tie(0) ; cout.tie(0)
+bool isValid(int dif,int a[],int n,int c){
+    int cnt=1;
+    int last=0;
+    for(int i=1;i<n;i++){
+        if(abs(a[i]-a[last])>=dif){
+            cnt++;
+            last=i;
+        }
+    }
+    return (cnt>=c);
+}
 void solve(){
-    cout<<"testing";
+    int n,c;cin>>n>>c;
+    int a[n];
+    for(int i=0;i<n;i++)cin>>a[i];
+    sort(a,a+n);
+    int l=0,r=INT_MAX;
+    int ans;
+    while(l<=r){
+        int mid=l+(r-l)/2;
+        if(isValid(mid,a,n,c)){
+            ans=mid;
+            l=mid+1;
+        }else{
+            r=mid-1;
+        }
+    }
+    cout<<ans<<endl;
 }
 int main(){
     FAST;
