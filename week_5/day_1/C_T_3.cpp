@@ -28,7 +28,7 @@ void solve(){
     int n,c;cin>>n>>c;
     int a[n];
     for(int i=0;i<n;i++)cin>>a[i];
-    sort(a,a+n);
+    sort(a,a+n);//*1 2 4 8 9
     int l=0,r=INT_MAX;
     int ans;
     while(l<=r){

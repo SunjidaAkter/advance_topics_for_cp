@@ -14,19 +14,21 @@ typedef pair<int,int>pii;
 #define forl(ty,var,str,end) for(ty var=str; var<end; var++)
 # define FAST ios_base :: sync_with_stdio (false) ; cin.tie(0) ; cout.tie(0)
 void solve(){
-    int n,q;cin>>n>>q;
-    map<int ,int> mp,mq;
-    for(int i=1;i<=n;i++){
-        int x;cin>>x;
-        if(mp.find(x)==mp.end())mp[x]=i;
-        mq[x]=i;
+    int n,h,m;cin>>n>>h>>m;
+    int sleepmin=h*60+m;
+    int ans=24*60+1;
+    while(n--){
+        int hh,mm;cin>>hh>>mm;
+        int alarmmin=hh*60+mm;
+        if(alarmmin==sleepmin){
+            ans=0;
+        }else if(alarmmin<sleepmin){
+            ans=min(ans,24*60-sleepmin+alarmmin);
+        }else{
+            ans=min(ans,alarmmin-sleepmin);
+        }
     }
-    while(q--){
-        int x,y;cin>>x>>y;
-        if(mp[x]<=mq[y]&&mp[x]&&mq[y])yes;
-        else no;
-    }
-    
+    cout<<ans/60<<" "<<ans%60<<nl;
 }
 int main(){
     FAST;

@@ -44,7 +44,7 @@ void solve(){
             if(mp.find(x)!=mp.end())sum+=mp[x];
         }
         mp[a[i]]++;
-        // sum++;
+        sum++;
     }
     c(sum);
 }

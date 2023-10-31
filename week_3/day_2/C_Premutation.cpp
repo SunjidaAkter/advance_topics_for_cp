@@ -19,13 +19,13 @@ void solve(){
     for(int i=0;i<n;i++){
         for(int j=0;j<n-1;j++){
             cin>>v[i][j];
-            mp[v[i][j]].push_back(j+1);
+            mp[v[i][j]].push_back(j);
         }
     }
     vector<int>f(n);
     for(auto &it:mp){
         sort(it.second.begin(),it.second.end(),greater<int>());
-        if(it.second[0]<=n-2)f[it.second[0]-1]=it.first;
+        if(it.second[0]<=n-3)f[it.second[0]]=it.first;
         else{
             if(it.second[0]==it.second[it.second.size()-1])f[n-1]=it.first;
             else f[n-2]=it.first;
