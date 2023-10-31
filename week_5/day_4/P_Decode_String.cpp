@@ -14,31 +14,32 @@ typedef pair<int,int>pii;
 #define forl(ty,var,str,end) for(ty var=str; var<end; var++)
 # define FAST ios_base :: sync_with_stdio (false) ; cin.tie(0) ; cout.tie(0)
 void solve(){
-    int n;cin>>n;int a[n];
-    for(int i=0;i<n;i++)cin>>a[i];
-    int sum1=0,res=n;
-    // cout<<res<<"k";
-    for(int i=0;i<n;i++){
-        sum1+=a[i];
-        int sum2=0,len=i+1,cnt=0;
-        for(int j=i+1;j<n;j++){
-            sum2+=a[j];
-            cnt++;
-            // cout<<sum1<<" "<<sum2<<" j ";
-            if(sum1==sum2){
-                len=max(len,cnt);
-                cnt=0;
-                sum2=0;
-            }
-        }
-        // cout<<sum2<<" k ";
-        if(sum2==0){
-            
-            res=min(len,res);
-            // cout<<res<<"j";
+    int n;cin>>n;
+    string s;cin>>s;
+    stack<string>st;
+    for(int i=n-1;i>=0;i--){
+        if(s[i]=='0'){
+            string sub=s.substr(i-2,3);
+            st.push(sub);
+            i=i-2;
+        }else {
+            string sub=s.substr(i,1);
+            st.push(sub);
         }
     }
-    cout<<res<<nl;
+    while(!st.empty()){
+        if(st.top().size()>1){
+            char x=96+stoi(st.top().substr(0,2));
+            cout<<x;
+            st.pop();
+        }else{
+            char x=96+stoi(st.top());
+            cout<<x;
+            st.pop();
+        }
+    }
+    
+    cout<<nl;
 }
 int main(){
     FAST;
