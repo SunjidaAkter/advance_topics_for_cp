@@ -15,16 +15,12 @@ typedef pair<int,int>pii;
 # define FAST ios_base :: sync_with_stdio (false) ; cin.tie(0) ; cout.tie(0)
 void solve(){
     int a,b,c;cin>>a>>b>>c;
-    if(a==1)cout<<1<<nl;
-    else if(b==1){
-        if((a-1)>2)cout<<2<<nl;
-        else if((a-1)==2)cout<<3<<nl;
-        else if((a-1)<2)cout<<1<<nl;
-    }else{
-        if((a-1)>(b-1))cout<<2<<nl;
-        else if((a-1)==(b-1))cout<<3<<nl;
-        else if((a-1)<(b-1))cout<<1<<nl;
-    }
+    int res2,res1=a-1;
+    if(c>b)res2=(c-b)+(c-1);
+    else res2=b-1;
+    if(res1>res2)cout<<2<<nl;
+    if(res1<res2)cout<<1<<nl;
+    if(res1==res2)cout<<3<<nl;
 }
 int main(){
     FAST;
