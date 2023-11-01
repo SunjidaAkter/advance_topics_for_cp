@@ -10,17 +10,22 @@ using namespace std;
 #define no cout<<"NO"<<nl
 #define Yes cout<<"Yes"<<nl
 #define No cout<<"No"<<nl
-typedef pair<int,int>pii;
+typedef pair<char,int>pii;
 #define forl(ty,var,str,end) for(ty var=str; var<end; var++)
 # define FAST ios_base :: sync_with_stdio (false) ; cin.tie(0) ; cout.tie(0)
 void solve(){
-    int n;cin>>n;
-    int first=n/3;
-    int second=first+1;
-    int third=first-1;
-    if(n%3==1)cout<<first<<" "<<second+(n%3)<<" "<<third<<nl;
-    else if(n%3==2)cout<<second<<" "<<first+(n%3)<<" "<<third<<nl;
-    else cout<<first<<" "<<second+(n%3)<<" "<<third<<nl;
+    string s;cin>>s;
+    int n=s.size();
+    vector<pii>v;
+    char a,b;
+    if(s[0]>s[n-1]){a=s[n-1];b=s[0];}
+    if(s[0]<s[n-1]){a=s[0];b=s[n-1];}
+    for(int i=0;i<n;i++){
+        if(s[i]>=a&&s[i]<=b)v.push_back({s[i],i});
+    }
+    sort(v.begin(),v.end());
+    for(int i=0;i<v.size();i++)cout<<v[i].first<<" ";
+    cout<<nl;
 }
 int main(){
     FAST;
