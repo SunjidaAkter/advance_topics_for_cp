@@ -33,15 +33,16 @@ void solve(){
     for(int i=0;i<n;i++){
         if(s[i]>=a&&s[i]<=b)v.push_back({s[i],i+1});
     }
-    sort(v.begin(),v.end(),cmp);
+    v.pop_back();
+    sort(v.begin(),v.end());
     if(ok)reverse(v.begin(),v.end());
     ll sum=0;
     for(int i=1;i<v.size();i++){
         sum+=abs((v[i].first-96)-(v[i-1].first-96));
     }
-    cout<<abs(a-b)<<" "<<v.size()<<nl;
+    cout<<abs(a-b)<<" "<<v.size()+1<<nl;
     cout<<1<<" ";
-    for(int i=1;i<(v.size()-1);i++)cout<<(v[i].second)<<" ";
+    for(int i=1;i<(v.size());i++)cout<<(v[i].second)<<" ";
     cout<<s.size();
     cout<<nl;
 }
