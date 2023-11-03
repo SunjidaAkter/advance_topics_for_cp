@@ -30,12 +30,12 @@ void solve(){
         int mid=l+(r-l)/2;
         ll sum=x;
         for(int i=0;i<n;i++){
-            sum-=a[i];
+            if(a[i]>mid)sum-=a[i];
         }
-        if(sum>=x){
+        if(sum>0){
             ans=mid;
-            l=mid+1;
-        }else r=mid-1;
+            r=mid-1;
+        }else l=mid+1;
     }
     c(ans);
 }
