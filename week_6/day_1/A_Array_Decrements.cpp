@@ -16,25 +16,29 @@ typedef pair<int,int>pii;
 void solve(){
     int n;cin>>n;
     int a[n],b[n];
-    int x;bool flag=true;
+    int x;bool flag=true,ok=false;
     for(int i=0;i<n;i++)cin>>a[i];
     for(int i=0;i<n;i++)cin>>b[i];
     if(n==1&&a[0]<b[0])no;
     else if(n==1&&a[0]>=b[0])yes;
     else{
         for(int i=0;i<n;i++){
-            if(b[i]!=0){x=a[i]-b[i];break;}
+            if(a[i]<b[i]){ok=true;break;}
+            if(b[i]!=0){x=a[i]-b[i];ok=true;break;}
         }
-        for(int i=0;i<n;i++){
-            if(a[i]-b[i]!=x||a[i]<b[i]){
-                if(b[i]!=0){flag=false;break;}
-                else{
-                    if(a[i]-b[i]>x){flag=false;break;}
+        if(!ok)yes;
+        else{
+            for(int i=0;i<n;i++){
+                if(a[i]-b[i]!=x||a[i]<b[i]){
+                    if(b[i]!=0){flag=false;break;}
+                    else{
+                        if(a[i]-b[i]>x){flag=false;break;}
+                    }
                 }
             }
+            if(flag)yes;
+            else no;
         }
-        if(flag)yes;
-        else no;
     }
 }
 int main(){
