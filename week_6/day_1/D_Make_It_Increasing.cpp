@@ -22,16 +22,13 @@ void solve(){
             while(a[i]>=a[i+1]){
                 a[i]/=2;
                 sum++;
-                // cout<<a[i]<<" "<<sum<<" . ";
                 if(a[i]<=0){
                     s1++;
-                    // flag=true;
                     break;
                 }
             }
         }
     }
-    // for(int i=0;i<n;i++)cout<<a[i]<<" ";
     if(s1>1)c(-1);
     else if(s1==1){
         for(int i=1;i<n;i++){
@@ -41,7 +38,6 @@ void solve(){
         else c(sum);
     }
     else c(sum);
-    // cout<<1/2;
 }
 int main(){
     FAST;
