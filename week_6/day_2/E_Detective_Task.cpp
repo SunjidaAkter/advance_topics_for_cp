@@ -30,7 +30,7 @@ void solve(){
             }
         }
         if(v.empty()&&!ok)cout<<s.size()<<nl;
-        else if(!ok)cout<<1<<nl;
+        else if(!ok)cout<<s.size()-1-v[v.size()-1].second+1<<nl;
         else c(x);
     }
 }
