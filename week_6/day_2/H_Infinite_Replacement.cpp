@@ -14,23 +14,19 @@ typedef pair<int,int>pii;
 #define forl(ty,var,str,end) for(ty var=str; var<end; var++)
 # define FAST ios_base :: sync_with_stdio (false) ; cin.tie(0) ; cout.tie(0)
 void solve(){
-    string a,b;cin>>a>>b;bool flag=false;int sum=1;
-    // set<char>bst;
-    if(b.size()==1&&b[0]=='a')c(1);
-    else if(b.size()==1&&b[0]!='a')c(2);
+    string a,b;cin>>a>>b;
+    if(b=="a")cout<<1<<nl;
     else{
+        int cnt=0;
         for(int i=0;i<b.size();i++){
             if(b[i]=='a'){
-                flag=true;
-                continue;
-            }else{
-                // bst.insert(b[i]);
-                sum++;
+                cnt=1;
+                break;
             }
         }
-        int n=a.size();
-        if(flag)c(-1);
-        else c(sum*a.size());
+        ll ans=pow(2,(a.size()));
+        if(cnt==1)cout<<-1<<nl;
+        else cout<<ans<<nl;
     }
 }
 int main(){
