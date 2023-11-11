@@ -15,10 +15,9 @@ typedef pair<int,int>pii;
 # define FAST ios_base :: sync_with_stdio (false) ; cin.tie(0) ; cout.tie(0)
 void solve(){
     double x,y;cin>>x>>y;
-    // cout<<((x-(x*(10/100)))>y)<<nl;
-    if((x-(x*0.1))==y)c("EITHER");
-    if((x-(x*0.1))<y)c("ONLINE");
-    if((x-(x*0.1))>y)c("DINING");
+    if((x-(x*0.1))==y)cout<<"EITHER"<<nl;
+    if((x-(x*0.1))<y)cout<<"ONLINE"<<nl;
+    if((x-(x*0.1))>y)cout<<"DINING"<<nl;
 }
 int main(){
     FAST;
