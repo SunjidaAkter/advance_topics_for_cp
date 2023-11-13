@@ -7,15 +7,16 @@ int main(){
     ll n;cin>>n;
     ll a[n];
     forl(i,0,n)cin>>a[i];
+    forl(i,0,n)cin>>a[i];
     map<ll,ll>mp1;
     ll sum1=0;
     ll cnt1=0;
     mp1[sum1]++;
     forl(i,0,n){
         sum1+=a[i];
-        // if(sum1-n)
-        cnt1+=mp1[(sum1-n)%n];
-        // cout<<mp1[(sum1-n)%n]<<" "<<(sum1-n)%n<<endl;
+        sum1%=n;
+        if(sum1<0)sum1+=n;
+        cnt1+=mp1[(sum1)];
         mp1[sum1]++;
     }
     cout<<cnt1;
