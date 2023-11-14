@@ -19,27 +19,24 @@ void solve(){
     int a[n],b[n];
     for(int i=0;i<n;i++)cin>>a[i];
     for(int i=0;i<n;i++)cin>>b[i];
-    int i=0,j=1,sum=a[0],mx=0;
+    int i=0,j=0,sum=0,mx=0;
     
     while(j<n){
-        if(b[j]%b[j-1]==0){
-            sum+=a[j];
-        }
-        else{
-            sum=a[j];
-            j=0;
-            continue;
-        }
-        while(sum>s){
+        sum+=a[j];
+        while(i<=j&&sum>s){
             sum-=a[i];
             i++;
         }
-        if(sum==s){
-            mx=max(mx,j-i+1);
+        if(j>0){
+            if(i<j&&(b[j-1]%b[j])!=0){
+                i=j;
+                sum=a[j];
+            }
         }
+        mx=max(mx,j-i+1);
         j++;
     }
-    cout<<mx; 
+    cout<<mx<<nl; 
 }
 int main(){
     FAST;
