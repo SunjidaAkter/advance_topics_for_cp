@@ -14,31 +14,57 @@ typedef pair<int,int>pii;
 #define forl(ty,var,str,end) for(ty var=str; var<end; var++)
 # define FAST ios_base :: sync_with_stdio (false) ; cin.tie(0) ; cout.tie(0)
 void solve(){
-    ll n;cin>>n;
-    ll a[n];
-    for(ll i=0;i<n;i++)cin>>a[i];
-    sort(a,a+n);
-    queue<ll>v1;
-    queue<ll>v2;
-    if(n&1)for(ll i=0;i<=(n/2);i++)v1.push(a[i]);
-    else for(ll i=0;i<(n/2);i++)v1.push(a[i]);
-    if(n&1)for(ll i=(n/2)+1;i<n;i++)v2.push(a[i]);
-    else for(ll i=(n/2);i<n;i++)v2.push(a[i]);
-    vector<ll>ans;bool ok=1;
-    while(!v2.empty()){
-        if(v1.front()==v2.front()){ok=0;break;}
-        ans.push_back(v1.front());
-        ans.push_back(v2.front());
-        v1.pop();v2.pop();
+    int n;cin>>n;
+    vector<int>a(n);
+    for(int i=0;i<n;i++)cin>>a[i];
+    sort(all(a));
+    int l,r;
+    if(n&1){
+        l=(n/2);
+        r=l+1;
+    }else{
+        l=(n/2)-1;
+        r=l+1;
     }
-    if(!v1.empty()&&!ans.empty()){
-        // cout<<v1.front()<<ans.size()<<"h";
-        if(v1.front()==ans[ans.size()-1])ok=0;
-        else ans.push_back(v1.front());
-        v1.pop();
+    vector<int>ans(n);
+    int idx=0;
+    for(int i=0;i<=l;i++){
+        ans[idx]=a[i];
+        idx+=2;
     }
-    if(!ok)c(-1);
-    else{for(ll val:ans)cout<<val<<" ";cout<<nl;}
+    idx=1;
+    for(int i=r;i<n;i++){
+        ans[idx]=a[i];
+        idx+=2;
+    }
+    bool ok=1;
+    for(int i=1;i<n-1;i++){
+        if(((ans[i-1]>ans[i])&&(ans[i]<ans[i+1]))||((ans[i-1]<ans[i])&&(ans[i]>ans[i+1])))continue;
+        else {ok=0;break;}
+    }
+    if(ok){for(int val:ans)cout<<val<<" ";cout<<nl;}
+    else{
+        l=(n/2)-1;
+        r=l+1;
+        vector<int>res(n);
+        idx=1;
+        for(int i=0;i<=l;i++){
+            res[idx]=a[i];
+            idx+=2;
+        }
+        idx=0;
+        for(int i=r;i<n;i++){
+            res[idx]=a[i];
+            idx+=2;
+        }
+        ok=1;
+        for(int i=1;i<n-1;i++){
+            if(((res[i-1]>res[i])&&(res[i]<res[i+1]))||((res[i-1]<res[i])&&(res[i]>res[i+1])))continue;
+            else {ok=0;break;}
+        }
+        if(ok){for(int val:res)cout<<val<<" ";cout<<nl;}
+        else cout<<-1<<nl;
+    }
 }
 int main(){
     FAST;
