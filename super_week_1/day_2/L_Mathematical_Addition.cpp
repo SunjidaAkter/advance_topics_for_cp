@@ -13,18 +13,12 @@ using namespace std;
 typedef pair<int,int>pii;
 #define forl(ty,var,str,end) for(ty var=str; var<end; var++)
 # define FAST ios_base :: sync_with_stdio (false) ; cin.tie(0) ; cout.tie(0)
-const ll M=1e9+7;
+const ll M=1e18;
 void solve(){
-    ll n,b;cin>>n>>b;
-    ll ans=0;
-    ll p=1;
-    while(b!=0){
-        if(b&1){ans=(ans+p)%M;}
-        p*=n;
-        p%=M;
-        b=(b>>1);
-    }
-    cout<<ans<<nl;
+    ll x,y;cin>>x>>y;
+    if(x==y)cout<<-1<<" "<<1<<nl;
+    else if(x<y)cout<<-(x*x)<<" "<<y*y<<nl;
+    else if(x>y)cout<<(x*x)<<" "<<-y*y<<nl;
 }
 int main(){
     FAST;
