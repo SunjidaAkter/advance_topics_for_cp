@@ -15,14 +15,15 @@ typedef pair<int,int>pii;
 # define FAST ios_base :: sync_with_stdio (false) ; cin.tie(0) ; cout.tie(0)
 void solve(){
     int n;cin>>n;
-    int a[n];
-    for(int i=0;i<n;i++)cin>>a[i];
+    vector<int>a;
+    for(int i=0;i<n;i++){int x;cin>>x;a.push_back(x);}
     bool ok=1;
     for(int i=0;i<n;i++){
-        if(a[i]%(i+2)==0){
-            ok=0;
-            break;
+        bool check=0;
+        for(int j=i+2;j>=2;j--){
+            if(a[i]%j){check=1;break;}
         }
+        ok=ok&check;
     }
     if(ok)yes;
     else no;
