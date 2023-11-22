@@ -28,7 +28,7 @@ void solve(){
     bool er=0;
     for(int val:v){
         int last=*(--(st.end()));
-        if(last>((val)/2)){er=1;break;}
+        if(last>((val-1)/2)){er=1;break;}
         else st.erase(last);
     }
     if(er)c(-1);
