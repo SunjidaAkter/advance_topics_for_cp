@@ -18,7 +18,7 @@ void solve(){
    cin >> s;
 
    if(s == "()"){
-      no;
+      cout << "NO\n";
       return;
    }
 
@@ -45,7 +45,7 @@ void solve(){
          t += ')';
    }
 
-   yes;
+   cout << "YES\n" << t << '\n';
 }
 int main(){
     FAST;
