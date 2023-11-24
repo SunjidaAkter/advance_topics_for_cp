@@ -67,6 +67,7 @@ ll query(ll node,ll l,ll r,ll x,ll y){
 }
 ll test=1;
 void solve(){
+    
     cout<<"Case "<<test<<":"<<nl;
     ll n,q;cin>>n>>q;
     ll a[n];
