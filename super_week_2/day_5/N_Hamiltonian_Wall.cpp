@@ -13,8 +13,82 @@ using namespace std;
 typedef pair<int,int>pii;
 #define forl(ty,var,str,end) for(ty var=str; var<end; var++)
 # define FAST ios_base :: sync_with_stdio (false) ; cin.tie(0) ; cout.tie(0)
+ll b1=0,b2=0;
+string a[2];
+const ll N=1e5;
+bool vis[2][N]={0};
+void dfs(int r,int c,int m){
+    // cout<<vis[r][c]<<" "<<c<<" u ";
+    if(vis[r][c]==1)return;
+    if(c>=m)return;
+    b2++;
+    vis[r][c]=1;
+    if(r==0){
+        if(a[1][c]=='B'&&!vis[1][c]){
+            dfs(1,c,m);
+        }else dfs(0,c+1,m);
+    }else{
+        if(a[0][c]=='B'&&!vis[0][c]){
+            dfs(0,c,m);
+        }else {
+            // cout<<r<<" "<<m<<" k ";
+            dfs(1,c+1,m);
+        }
+    }
+}
+void refresh(){
+    for(int i=0;i<2;i++){
+        for(int j=0;j<N;j++)vis[i][j]=0;
+    }
+}
 void solve(){
-    
+    ll m;cin>>m;
+    b1=0;
+    for(ll i=0;i<2;i++){
+        for(ll j=0;j<m;j++){
+            char x;cin>>x;
+            a[i][j]=x;
+        }
+    }
+    bool ans=0;
+    if(m==1){
+        if(a[0][0]=='B'&&a[1][0]=='B')ans=1;
+    }
+    for(ll i=0;i<2;i++){
+        for(ll j=0;j<m;j++){
+            if(a[i][j]=='B')b1++;
+        }
+    }
+    // cout<<b1<<" j ";
+    for(ll i=0;i<m;i++){
+        if(a[0][i]=='B'&&a[1][i]=='B'){
+            b2=0;
+            refresh();
+            dfs(0,i,m);
+            if(b1==b2)ans=1;
+            refresh();
+            b2=0;
+            dfs(1,i,m);
+            if(b1==b2)ans=1;
+            break;
+        }else if(a[0][i]=='B'){
+            b2=0;
+            refresh();
+            dfs(0,i,m);
+            if(b1==b2)ans=1;
+            break;
+        }else if(a[1][i]=='B'){
+            // cout<<" k ";
+            b2=0;
+            // refresh();
+            dfs(1,i,m);
+            // cout<<b2<<" why ";
+            if(b1==b2)ans=1;
+            break;
+        }
+    }
+    if(ans)yes;
+    else no;
 }
 int main(){
     FAST;
