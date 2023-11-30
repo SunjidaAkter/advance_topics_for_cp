@@ -17,14 +17,14 @@ void solve(){
     int n;
     cin >> n;
     vector<int> a(n);
-    for (int& x : a) cin >> x;
-    n = unique(a.begin(), a.end()) - a.begin();
-    int ans = n;
-    for (int i = 0; i + 2 < n; ++i) {
-      ans -= (a[i] < a[i + 1] && a[i + 1] < a[i + 2]);
-      ans -= (a[i] > a[i + 1] && a[i + 1] > a[i + 2]);
+    for (int i=0;i<n;i++) cin >> a[i];
+    int x = unique(a.begin(), a.end()) - a.begin();
+    int ans = x;
+    for (int i=1;i<x-1;i++) {
+      if(a[i-1]<a[i]&&a[i]<a[i+1])ans--;
+      if(a[i-1]>a[i]&&a[i]>a[i+1])ans--;
     }
-    cout << ans << '\n';
+    c(ans);
 }
 
 int main(){
