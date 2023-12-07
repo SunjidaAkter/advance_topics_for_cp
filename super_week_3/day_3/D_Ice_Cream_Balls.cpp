@@ -15,14 +15,17 @@ typedef pair<int,int>pii;
 # define FAST ios_base :: sync_with_stdio (false) ; cin.tie(0) ; cout.tie(0)
 void solve(){
     ll n;cin>>n;
-    ll l=1,r=2e9;
-    while(r-l>1){
+    ll l=1,r=1e10,ans=-1;
+    while(r>=l){
         ll mid=l+(r-l)/2;
         ll mCr=mid*(mid-1)/2;
-        if(mCr<=n)l=mid;
-        else r=mid;
+        if(mCr<=n){
+            ans=mid;
+            l=mid+1;
+        }
+        else r=mid-1;
     }
-    cout<<l+(n-(l*(l-1)/2))<<nl;
+    cout<<ans+(n-(ans*(ans-1)/2))<<nl;
 }
 int main(){
     FAST;
