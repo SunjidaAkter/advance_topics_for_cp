@@ -51,7 +51,7 @@ ll query(ll node, ll l, ll r, ll x, ll y) {
     if (r < x || l > y) {
         return 0;
     }
-    if (l >= x && r <= y) {
+    if (x <= l && r <= y) {
         return tree[node];
     }
     ll leftNode = 2 * node;
@@ -64,11 +64,9 @@ ll test = 1;
 void solve() {
     cout << "Case " << test << ":" << nl;
     ll n, q;cin >> n >> q;
-
     ll a[n + 1];
     for (ll i = 1;i <= n;i++)cin >> a[i];
     build(1, 1, n, a);
-
     while (q--) {
         cin >> type;
         if (type == 1) {
