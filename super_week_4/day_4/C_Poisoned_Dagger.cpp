@@ -16,7 +16,7 @@ typedef pair<int,int>pii;
 bool isValid(ll dif,ll a[],ll n,ll c){
     ll cnt=0;
     for(ll i=1;i<n;i++){
-        if((a[i]-a[i-1])<dif){
+        if((a[i]-a[i-1])<=dif){
             cnt+=(a[i]-a[i-1]);
         }else cnt+=dif;
     }
