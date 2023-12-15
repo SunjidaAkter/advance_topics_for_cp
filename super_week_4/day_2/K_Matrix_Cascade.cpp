@@ -37,8 +37,7 @@ void solve(){
         vector<int> f(n + 2, 0);
         f[0] = start[0];
         
-        for(int i=1;i<n + 2;i++)
-            f[i] = f[i - 1] + start[i] - end[i - 1];
+        for(int j=1;j<n + 2;j++)f[j]=f[j-1]+start[j]-end[j-1];
             
         vector<int> nextstart(n + 2, 0), nextend(n + 2, 0);
         nextstart[0] = start[0];

@@ -15,12 +15,9 @@ typedef pair<int,int>pii;
 # define FAST ios_base :: sync_with_stdio (false) ; cin.tie(0) ; cout.tie(0)
 void solve(){
     ll n,k;cin>>n>>k;
-    ll x=k/(n-1);
-    if((x+k)%n==0){
-        cout<<x+k-1<<nl;
-    }else{
-        cout<<x+k<<nl;
-    }
+    ll x=k+(k/(n-1));
+    if(x%n==0)cout<<x-1<<nl;
+    else cout<<x<<nl;
 }
 int main(){
     FAST;
