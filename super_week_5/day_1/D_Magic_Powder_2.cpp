@@ -12,7 +12,6 @@ bool isValid(ll mid,vector<ll>&a,vector<ll>&b,ll k){
             rem-=need;
         }
     }
-    // cout<<cnt<<" here ";
     return true;
 }
 int main(){
