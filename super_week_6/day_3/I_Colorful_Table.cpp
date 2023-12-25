@@ -17,8 +17,7 @@ void solve(){
     ll n,k;cin>>n>>k;
     ll a[n+1];
     set<ll>st;
-    vector<ll>l(k+1,n+1),r(k+1,-1);
-    
+    vector<ll>l(k+1,n+1),r(k+1,-1); 
     for(ll i=1;i<=n;i++){
         cin>>a[i];
         l[a[i]]=min(l[a[i]],i);
