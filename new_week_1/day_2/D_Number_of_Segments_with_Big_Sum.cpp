@@ -20,10 +20,9 @@ void solve(){
             x-=a[i];
             i++;
         }
-        if(x>=s)cnt+=(1+(n-j));
+        if(x>=s)cnt+=(i+1);
     }
-    if(cnt==0)cout<<-1;
-    else cout<<cnt;
+    cout<<cnt;
 }
 int main(){
     FAST;
