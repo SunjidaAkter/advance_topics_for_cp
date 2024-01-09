@@ -27,7 +27,6 @@ void solve(){
         }
         if(a[i]==0&&f){
             f=0;
-            // cout<<s<<" "<<o<<"nl"<<nl;
             for(ll j=0;j<s-1;j++)ans.push_back(0);
             ans.push_back(o);
             s=0;
