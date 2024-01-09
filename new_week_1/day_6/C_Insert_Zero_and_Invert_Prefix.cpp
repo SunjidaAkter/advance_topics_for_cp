@@ -34,13 +34,14 @@ void solve(){
             o=0;
         }
         if(a[i]==0){
-            // z++;
             s++;
         }
     }
     if(f){
         for(ll j=0;j<s-1;j++)ans.push_back(0);
         ans.push_back(o);
+    }else{
+        for(ll j=0;j<s;j++)ans.push_back(0);
     }
     yes;
     for(ll val:ans)cout<<val<<" ";
