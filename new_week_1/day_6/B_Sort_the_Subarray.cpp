@@ -14,7 +14,7 @@ void solve(){
     ll a[n],b[n],x=0,y=n-1;
     for(ll i=0;i<n;i++)cin>>a[i];
     for(ll i=0;i<n;i++)cin>>b[i];
-    ll f,s,f1,s1;
+    ll f,s,f1=-1,s1=-1;
     for(ll i=0;i<n;i++){
         if(a[i]!=b[i]){
             f=i;
@@ -28,9 +28,18 @@ void solve(){
         }
     }
     for(ll i=f;i>0;i--){
-        if(a[i]>=a[i-1])f1=i-1;
-        
+        if(b[i]>=b[i-1])f1=i-1;
+        else break;
     }
+    for(ll i=s;i<n-1;i++){
+        if(b[i+1]>=b[i])s1=i+1;
+        else break;
+    }
+    // cout<<f<<" "<<f1<<" "<<s<<" "<<s1<<nl;
+    if(f1==-1)cout<<f+1<<" ";
+    else cout<<f1+1<<" ";
+    if(s1==-1)cout<<s+1<<nl;
+    else cout<<s1+1<<nl;
 }
 int main(){
     FAST;
