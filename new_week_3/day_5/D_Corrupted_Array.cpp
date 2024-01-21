@@ -22,19 +22,18 @@ void solve(){
     for(ll i=0;i<n+1;i++){
         sum+=a[i];
     }
-    // cout<<sum-x<<nl;
-    auto it=find(all(a),(sum-x));
+    auto it=find(a.begin(),a.end(),sum-x);
     if(it!=a.end()){
         a.erase(it);
         for(ll val:a)cout<<val<<" ";
         cout<<nl;
     }else{
+        sum-=a.back();
         if(sum-a.back()==0){
             a.pop_back();
             for(ll val:a)cout<<val<<" ";
         }else cout<<-1<<nl;
     }
-    // cout<<sum<<nl;
 }
 int main(){
     FAST;
