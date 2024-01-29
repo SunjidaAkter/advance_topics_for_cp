@@ -15,7 +15,9 @@ void solve(){
         ll pdc=i*w+dc;
         ll phc=(k-i)*a+hc;
         ll x=(phc/dm)+1;
+        if(phc%dm==0)x--;
         ll y=(hm/pdc)+1;
+        if(hm%pdc==0)y--;
         if(x>=y){
             yes;return;
         }
