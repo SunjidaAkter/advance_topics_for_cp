@@ -11,9 +11,12 @@ using namespace std;
 typedef pair<ll,ll>pii;
 void solve(){
     ll n,m;
-    vector<ll>a(n),b(m);
-    cin>>n;for(ll i=0;i<n;i++)cin>>a[i];
-    cin>>m;for(ll i=0;i<m;i++)cin>>b[i];
+    cin>>n;
+    vector<ll>a(n);
+    for(ll i=0;i<n;i++)cin>>a[i];
+    cin>>m;
+    vector<ll>b(m);
+    for(ll i=0;i<m;i++)cin>>b[i];
     vector<ll>pa(n),pb(m);
     pa[0]=a[0],pb[0]=b[0];
     ll mxa=0,mxb=0;
