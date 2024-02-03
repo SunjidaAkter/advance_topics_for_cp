@@ -9,8 +9,27 @@ using namespace std;
 #define No cout<<"No"<<nl
 #define FAST ios_base :: sync_with_stdio (false) ; cin.tie(0) ; cout.tie(0)
 typedef pair<ll,ll>pii;
+ll nc2(ll n){
+    return (n*(n-1))/2;
+}
+ll nc3(ll n){
+    return (n*(n-1)*(n-2))/6;
+}
 void solve(){
-    
+    ll n;cin>>n;
+    ll a[n];
+    map<ll,ll>mp;
+    for(ll i=0;i<n;i++){
+        cin>>a[i];
+        mp[a[i]]++;
+    }
+    ll small=0,ans=0;
+    for(auto it:mp){
+        ans+=nc3(it.second);
+        ans+=nc2(it.second)*small;
+        small+=it.second;
+    }
+    cout<<ans<<nl;
 }
 int main(){
     FAST;
