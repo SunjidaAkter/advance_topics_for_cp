@@ -1,90 +1,56 @@
 #include<bits/stdc++.h>
 using namespace std;
-int m,n;
-typedef pair<int,int>pii;
-const int N=1e3+10;
-vector<string>g;
-int visited[N][N];
-int level[N][N];
-pii parents[N][N];
-vector<pii>direc={{0,1},{0,-1},{1,0},{-1,0}};
-bool is_valid(int i,int j){
-    return (i>=0&&i<m&&j>=0&&j<n);
-}
-void bfs(int si,int sj){
-    queue<pii>q;
-    q.push({si,sj});
-    visited[si][sj]=true;
-    level[si][sj]=0;
-    parents[si][sj]={-1,-1};
-    while(!q.empty()){
-        pii u=q.front();
-        int ui=u.first;
-        int uj=u.second;
-        q.pop();
-        for(pii d:direc){
-            int vi=ui+d.first; 
-            int vj=uj+d.second;
-            if(is_valid(vi,vj) && !visited[vi][vj] && g[vi][vj]!='#'){
-                q.push({vi,vj});
-                visited[vi][vj]=true;
-                level[vi][vj]=level[ui][uj]+1;
-                parents[vi][vj]={ui,uj};
-            }
+#define ll long long
+#define all(X) (X).begin(), (X).end()
+#define nl '\n'
+#define yes cout<<"YES"<<nl
+#define no cout<<"NO"<<nl
+#define Yes cout<<"Yes"<<nl
+#define No cout<<"No"<<nl
+#define FAST ios_base :: sync_with_stdio (false) ; cin.tie(0) ; cout.tie(0)
+typedef pair<ll,ll>pii;
+void solve(){
+    ll n;cin>>n;
+    vector<string>v(n);
+    for(ll i=0;i<n;i++){
+        cin>>v[i];
+    }
+    if((v[0][1]==v[1][0])&&(v[n-1][n-2]==v[n-2][n-1])){
+        if(v[0][1]==v[n-1][n-2]){
+            cout<<2<<nl;
+            cout<<1<<" "<<2<<nl;
+            cout<<2<<" "<<1<<nl;
+        }else cout<<0<<nl;
+    }else if(v[0][1]==v[1][0]){
+        cout<<1<<nl;
+        if(v[0][1]==v[n-1][n-2]){
+            cout<<n<<" "<<n-1<<nl;
+        }else{
+            cout<<n-1<<" "<<n<<nl;
+        }
+    }else if(v[n-1][n-2]==v[n-2][n-1]){
+        cout<<1<<nl;
+        if(v[0][1]==v[n-1][n-2]){
+            cout<<1<<" "<<2<<nl;
+        }else{
+            cout<<2<<" "<<1<<nl;
+        }
+    }else if(v[0][1]!=v[1][0]){
+        cout<<2<<nl;
+        cout<<1<<" "<<2<<nl;
+        if(v[0][1]==v[n-1][n-2]){
+            cout<<n-1<<" "<<n<<nl;
+        }else{
+            cout<<n<<" "<<n-1<<nl;
         }
     }
 }
 int main(){
-    cin>>m>>n;
-    int si,sj,di,dj; 
-    for(int i=0;i<m;i++){
-        string x;cin>>x;
-        for(int j=0;j<n;j++){
-            if(x[j]=='A'){
-                si=i,sj=j;
-            }
-            if(x[j]=='B'){
-                di=i,dj=j;
-            }
-        }
-        g.push_back(x);
+    FAST;
+    int t=1;
+    cin>>t;
+    while(t--){
+        solve();
     }
-    bfs(si,sj);
-    vector<pii>path;
-    pii curr={di,dj};
-    if(level[di][dj]!=0){
-        cout<<"YES"<<endl;
-        cout<<level[di][dj]<<endl;
-        while(curr.first!=-1 && curr.second!=-1){
-            path.push_back(curr);
-            curr=parents[curr.first][curr.second];
-        }
-        reverse(path.begin(),path.end());
-        for(int i=1;i<path.size();i++){
-            
-            if(path[i-1].first==path[i].first){
-                if(path[i-1].second==path[i].second-1){
-                    cout<<"R";
-                }else cout<<"L";
-            }else{
-                if(path[i-1].first==path[i].first-1){
-                    cout<<"D";
-                }else cout<<"U";
-            }
-        }
-    }else cout<<"NO"<<endl;
     return 0;
 }
-/*
-//*input
-5 8
-########
-#.A#...#
-#.##.#B#
-#......#
-########
-//*output
-YES
-9
-LDDRRRRRU
-*/
