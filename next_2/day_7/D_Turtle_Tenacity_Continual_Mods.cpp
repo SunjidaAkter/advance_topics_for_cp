@@ -16,25 +16,19 @@ ll lcm(ll a,ll b){
 }
 void solve(){
     ll n;cin>>n;
-    ll a[n],mx=0,mn=LONG_MAX,one=0;
+    ll a[n];
     for(ll i=0;i<n;i++)cin>>a[i];
-    for(ll i=0;i<n;i++)mn=min(mn,a[i]);
-    for(ll i=0;i<n;i++)mx=max(mx,a[i]);
-    for(ll i=0;i<n;i++){
-        if(a[i]==mn)one++;
-    }
-    ll gcd=1;
-    for(ll i=0;i<n;i++){
-        gcd=lcm(gcd,a[i]);
-    }
-    for(ll i=0;i<n;i++){
-        gcd=lcm(gcd,a[i]);
-    }
-    if(gcd==mx)no;
+    sort(a,a+n);
+    if(a[0]!=a[1])yes;
     else{
-        // if(one%2==0)no;
-        // else 
-        yes;
+        bool f=0;
+        for(ll i=1;i<n;i++){
+            if(a[i]%a[0]!=0){
+                f=1;break;
+            }
+        }
+        if(f)yes;
+        else no;
     }
 }
 int main(){
