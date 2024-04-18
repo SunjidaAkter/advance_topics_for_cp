@@ -24,12 +24,7 @@ void solve(){
         if(a[i+1]==el)suf[i]=suf[i+1]+1;
         else suf[i]=0;
     }
-    // cout<<n<<nl;
     ll mn=LONG_MAX;
-    for(ll i=0;i<n;i++)cout<<pre[i]<<" ";
-    cout<<nl;
-    for(ll i=0;i<n;i++)cout<<suf[i]<<" ";
-    cout<<nl;
     for(ll i=1;i<n-1;i++){
         if(a[i]!=el)mn=min(mn,pre[i]);
         if(a[i]!=el)mn=min(mn,suf[i]);
