@@ -21,7 +21,6 @@ void solve(){
             cout<<j<<" "<<i+1<<" ";
             for(int k=0;k<n;k++)cout<<k+1<<" ";
             cout<<nl;
-
         }
     }
 }
