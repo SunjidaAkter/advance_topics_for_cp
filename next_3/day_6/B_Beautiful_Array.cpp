@@ -11,10 +11,41 @@ using namespace std;
 typedef pair<ll,ll>pii;
 void solve(){
     ll n,k,b,s;cin>>n>>k>>b>>s;
-    ll x=(s/k)-b;
-    if((s-(b*k)-(k-1))>(k-1)*(n-1)&&s/k<b){
+    ll mn=b*k;
+    ll rem=s-mn;
+    if(s<mn||n*(k-1)<rem){
         cout<<-1<<nl;
-    }else cout<<0<<nl;
+        return;
+    }
+    vector<ll>v(n);
+    for(ll i=0;i<n;i++){
+        if(b){
+            v[i]=1;
+            b--;
+        }else{
+            v[i]=0;
+        }
+    }
+    if(b){
+        v[n-1]+=b;
+    }
+    for(ll i=0;i<n;i++){
+        v[i]*=k;
+        s-=v[i];
+    }
+    if(s){
+        for(ll i=0;i<n;i++){
+            if(s>=(k-1)){
+                v[i]+=(k-1);
+                s-=(k-1);
+            }else{
+                v[i]+=s;
+                s=0;
+            }
+        }
+    }
+    for(ll val:v)cout<<val<<" ";
+    cout<<nl;
 }
 int main(){
     FAST;
