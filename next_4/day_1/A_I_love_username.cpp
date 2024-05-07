@@ -16,8 +16,6 @@ void solve(){
     ll mx=a[0],mn=a[0],cnt=0;
     for(ll i=1;i<n;i++){
         if(mx<a[i]||mn>a[i]){
-                // cout<<mx<<" mx ";
-                // cout<<mn<<" mn ";
             if(mx<a[i]){
                 mx=a[i];
                 cnt++;
