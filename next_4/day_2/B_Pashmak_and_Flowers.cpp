@@ -24,7 +24,8 @@ void solve(){
         if(a[i]==mn)cnt1++;
         if(a[i]==mx)cnt2++;
     }
-    cout<<cnt1*cnt2<<nl;
+    if(mx==mn)cout<<(cnt1-1)*cnt1/2<<nl;
+    else cout<<cnt1*cnt2<<nl;
 }
 int main(){
     FAST;
