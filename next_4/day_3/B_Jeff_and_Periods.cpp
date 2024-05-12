@@ -30,7 +30,6 @@ void solve(){
         aa.push_back(*st.begin());
         st.erase(st.begin());
     }
-    sort(all(aa));
     for(ll i=0; i<aa.size();i++){
         if(mp[aa[i]]==1){
             ans.push_back({aa[i],0});
