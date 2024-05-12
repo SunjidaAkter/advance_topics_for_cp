@@ -18,16 +18,16 @@ void solve(){
     int a[n];
     for(int i=1;i<=n;i++)a[i]=i;
     int ans=0;
-    for(int k=0;k<n;k++){
+    for(int k=1;k<=n;k++){
         int sum=0;
         int mx=0;
         for(int i=1;i<=n;i++){
-            if(i<=k){
+            if(i<k){
                 sum+=i*i;
                 mx=max(mx,i*i);
             }else{
-                sum+=((n+k+1-i)*i);
-                mx=max(mx,((n+k+1-i)*i));
+                sum+=((n+k-i)*i);
+                mx=max(mx,((n+k-i)*i));
             }
         }
         ans=max(ans,sum-mx);

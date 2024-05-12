@@ -14,30 +14,26 @@ typedef pair<int,int>pii;
 #define forl(ty,var,str,end) for(ty var=str; var<end; var++)
 # define FAST ios_base :: sync_with_stdio (false) ; cin.tie(0) ; cout.tie(0)
 void solve(){
-    string s1,s2;cin>>s1>>s2;
-    if(s1.size()<s2.size()){
-        no;
-        return;
+    int n;cin>>n;
+    int a[n];
+    for(int i=0;i<n;i++)cin>>a[i];
+    int bit[32]={0};
+    for(int i=0;i<32;i++){
+        for(int val:a){
+            if(val&(1<<i))bit[i]++;
+        }
     }
-    ll i=0,j=0,st=0;
-    while(i!=s1.size()){
-        if(i%2==st&&s1[i]==s2[j])j++,st=1-st;
-        if(j==s2.size())break;
-        i++;
+    for(int k=1;k<=n;k++){
+        bool ok=1;
+        for(int i=0;i<32;i++){
+            if(bit[i]%k!=0){
+                ok=0;
+                break;
+            }
+        }
+        if(ok)cout<<k<<" ";
     }
-    if(j==s2.size()&&(s1.size()-i-1)%2==0){
-        yes;return;
-    }
-    i=0,j=0,st=1;
-    while(i!=s1.size()){
-        if(i%2==st&&s1[i]==s2[j])j++,st=1-st;
-        if(j==s2.size())break;
-        i++;
-    }
-    if(j==s2.size()&&(s1.size()-i-1)%2==0){
-        yes;return;
-    }
-    no;
+    cout<<nl;
 }
 int main(){
     FAST;

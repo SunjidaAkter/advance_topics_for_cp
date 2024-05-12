@@ -12,7 +12,7 @@ typedef pair<ll,ll>pii;
 void solve(){
     string s;cin>>s;bool f=0;
     for(ll i=0; i<s.size(); i++){
-        if(s[i]=='H'||s[i]=='Q'||s[i]=='9'||s[i]=='+'){
+        if(s[i]=='H'||s[i]=='Q'||s[i]=='9'){
             f=1;break;
         }
     }

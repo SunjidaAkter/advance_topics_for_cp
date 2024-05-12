@@ -10,19 +10,15 @@ using namespace std;
 #define FAST ios_base :: sync_with_stdio (false) ; cin.tie(0) ; cout.tie(0)
 typedef pair<ll,ll>pii;
 void solve(){
-    ll x,y,z;cin>>x>>y>>z;
-    if(y%3==0){
-        if((y+z)%3==0)cout<<x+(y+z)/3<<nl;
-        else cout<<x+1+(y+z)/3<<nl;
-    }else if(3-(y%3)<=z){
-        if((y+z)%3==0)cout<<x+(y+z)/3<<nl;
-        else cout<<x+1+(y+z)/3<<nl;
-    }else cout<<-1<<nl;
+    ll n,m;cin>>n>>m;
+    ll x=6-max(m,n)+1;
+    ll gcd=__gcd(x,(ll)6);
+    cout<<x/gcd<<"/"<<6/gcd<<nl;
 }
 int main(){
     FAST;
     int t=1;
-    cin>>t;
+    // cin>>t;
     while(t--){
         solve();
     }

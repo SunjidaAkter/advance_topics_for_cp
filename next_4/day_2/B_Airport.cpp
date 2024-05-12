@@ -35,7 +35,7 @@ void solve(){
     for(ll i=0;i<n;i++){
         ll x=*mst.begin();
         mx+=x;
-        mst.erase(mst.lower_bound(x));
+        mst.erase(mst.begin());
         x--;
         if(x>0){
             mst.insert(x);
