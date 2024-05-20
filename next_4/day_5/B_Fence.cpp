@@ -11,6 +11,10 @@ using namespace std;
 typedef pair<ll,ll>pii;
 void solve(){
     ll n,k;cin>>n>>k;
+    if(n==k){
+        cout<<1<<nl;
+        return;
+    }
     ll a[n];
     for(ll i=0;i<n;i++)cin>>a[i];
     ll ans=LONG_MAX,sum=0,x=0;
@@ -22,7 +26,7 @@ void solve(){
         sum-=a[i];
         sum+=a[i+k];
     }
-    if(ans>=sum){sum=ans;x=n-k;}
+    if(ans>=sum){ans=sum;x=n-k+1;}
     // ans=min(ans,sum);
     cout<<x<<nl;
 }
