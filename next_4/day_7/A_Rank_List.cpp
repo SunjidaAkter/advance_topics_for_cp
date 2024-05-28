@@ -45,7 +45,6 @@ void solve(){
             s=pq.top().y;
         }
         v.push_back({pq.top().x,pq.top().y});
-        // cout<<v.back().first<<" "<<v.back().second<<nl;
         pq.pop(),i++;
     }
     for(auto val:v){
