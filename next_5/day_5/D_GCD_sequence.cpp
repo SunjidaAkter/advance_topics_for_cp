@@ -17,16 +17,66 @@ void solve(){
     for(ll i=1;i<n;i++){
         v.push_back(__gcd(a[i],a[i-1]));
     }
-    ll cnt=0,x=v[0];
-    for(ll i=1;i<v.size();i++){
-        if(v[i-1]>v[i]){
-            cnt++;
-            x=v[i-1];
+    if(is_sorted(all(v))){
+        yes;return;
+    }
+    ll x;
+    for(ll i=0;i<v.size()-1;i++){
+        if(v[i]>v[i+1]){
+            x=i;
+            break;
         }
     }
-    for(ll val:v)cout<<val<<" n ";
-    if(cnt>2)no;
-    else yes;
+    vector<ll>g;
+    for(ll i=0;i<n;i++){
+        if(i!=x){
+            g.push_back(a[i]);
+        }
+    }
+    vector<ll>gg;
+    for(ll i=1;i<g.size();i++){
+        gg.push_back(__gcd(g[i-1],g[i]));
+    }
+    if(is_sorted(all(gg))){
+        yes;return;
+    }
+    g.clear();
+    gg.clear();
+    x++;
+    // vector<ll>g;
+    for(ll i=0;i<n;i++){
+        if(i!=x){
+            g.push_back(a[i]);
+        }
+    }
+    // vector<ll>gg(g.size()-1);
+    for(ll i=1;i<g.size();i++){
+        gg.push_back(__gcd(g[i-1],g[i]));
+    }
+    if(is_sorted(all(gg))){
+        yes;return;
+    }
+    g.clear();
+    gg.clear();
+    // cout<<nl;
+    x++;
+    // vector<ll>g;
+    for(ll i=0;i<n;i++){
+        if(i!=x){
+            g.push_back(a[i]);
+        }
+    }
+    // vector<ll>gg(g.size()-1);
+    for(ll i=1;i<g.size();i++){
+        gg.push_back(__gcd(g[i-1],g[i]));
+    }
+    // for(ll val:gg)cout<<val<<" ";
+    if(is_sorted(all(gg))){
+        yes;return;
+    }
+    g.clear();
+    gg.clear();
+    no;
 }
 int main(){
     FAST;
