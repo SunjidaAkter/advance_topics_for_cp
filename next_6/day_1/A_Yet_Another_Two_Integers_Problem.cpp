@@ -11,25 +11,15 @@ using namespace std;
 typedef pair<ll,ll>pii;
 void solve(){
     ll x,y;cin>>x>>y;
-    ll k,m;cin>>k>>m;
-    ll a[x],b[y];
-    for(ll i=0;i<x;i++)cin>>a[i];
-    sort(a,a+x);
-    for(ll i=0;i<y;i++)cin>>b[i];
-    sort(b,b+y);
-    reverse(b,b+y);
-    vector<ll>v1;
-    vector<ll>v2;
-    for(ll i=0;i<k;i++)v1.push_back(a[i]);
-    for(ll i=0;i<m;i++)v2.push_back(b[i]);
-    reverse(all(v2));
-    if(v1.back()<v2[0])yes;
-    else no;
+    ll ans,n=abs(x-y);
+    if(n%10!=0)ans=(n/10)+1;
+    else ans=n/10;
+    cout<<ans<<nl; 
 }
 int main(){
     FAST;
     int t=1;
-    // cin>>t;
+    cin>>t;
     while(t--){
         solve();
     }
