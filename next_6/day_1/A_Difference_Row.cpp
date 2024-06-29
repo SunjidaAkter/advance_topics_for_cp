@@ -11,22 +11,12 @@ using namespace std;
 typedef pair<ll,ll>pii;
 void solve(){
     ll n;cin>>n;
-    ll a[n];for(ll i=0;i<n;i++)cin>>a[i];
-    if(n==1){
-        cout<<1<<nl;
-        return;
-    }
-    ll mx=0,cnt=2;
-    for(ll i=2;i<n;i++){
-        if(a[i-2]+a[i-1]==a[i]){
-            cnt++;
-        }else{
-            cnt=2;
-        }
-        mx=max(mx,cnt);
-    }
-    mx=max(mx,cnt);
-    cout<<mx<<nl;
+    ll a[n];
+    for(ll i=0;i<n;i++)cin>>a[i];
+    sort(a,a+n);
+    swap(a[0],a[n-1]);
+    for(ll i=0;i<n;i++)cout<<a[i]<<" ";
+    cout<<nl;
 }
 int main(){
     FAST;
