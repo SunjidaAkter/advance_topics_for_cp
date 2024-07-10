@@ -10,7 +10,7 @@ using namespace std;
 #define FAST ios_base :: sync_with_stdio (false) ; cin.tie(0) ; cout.tie(0)
 typedef pair<ll,ll>pii;
 const ll mx=101;
-vector<ll>parent(mx);
+vector<ll>parent(mx+1);
 ll freq[mx]={0};
 ll rnk[mx]={0};
 ll dsu_find(ll x){
