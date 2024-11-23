@@ -9,21 +9,14 @@ using namespace std;
 #define No cout<<"No"<<nl
 #define FAST ios_base :: sync_with_stdio (false) ; cin.tie(0) ; cout.tie(0)
 typedef pair<ll,ll>pii;
-const ll N=1e5+20;
-ll dp[N];
 void solve(){
-    ll n,l,r;cin>>n>>l>>r;
-    ll a[n];
-    for(ll i=0;i<n;i++){
-        cin>>a[i],dp[i+1]=0;
-    }
-    ll sum=0,cur=0;
-    for(ll i=0;i<n;i++){
-        sum+=a[i];
-        while(sum-a[cur]>=l)sum-=a[cur++];
-        dp[i+1]=max(dp[i],dp[cur]+(l<=sum&&sum<=r));
-    }
-    cout<<dp[n]<<nl;
+    ll n,k;cin>>n>>k;
+    if(n==k){
+        for(ll i=0;i<n;i++)cout<<1<<" ";
+    }else if(k==1){
+        for(ll i=0;i<n;i++)cout<<i+1<<" ";
+    }else cout<<-1<<" ";
+    cout<<nl;
 }
 int main(){
     FAST;

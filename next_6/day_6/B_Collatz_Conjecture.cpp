@@ -32,7 +32,6 @@ void solve(){
             break;
         }
         if(i==v.size()-1){
-            cout<<k<<nl;
             sum=1+(k%(y-1));
         }
     }
