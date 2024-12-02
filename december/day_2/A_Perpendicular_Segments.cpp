@@ -11,8 +11,8 @@ using namespace std;
 typedef pair<ll,ll>pii;
 void solve(){
     ll x,y,k;cin>>x>>y>>k;
-    cout<<0<<" "<<0<<" "<<x<<" "<<y<<nl;
-    cout<<0<<" "<<y<<" "<<x<<" "<<0<<nl;
+    cout<<0<<" "<<0<<" "<<min(x,y)<<" "<<min(x,y)<<" "<<nl;
+    cout<<0<<" "<<min(x,y)<<" "<<min(x,y)<<" "<<0<<" "<<nl;
 }
 int main(){
     FAST;
