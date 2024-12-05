@@ -28,6 +28,7 @@ void solve(){
         }
         i++;
     }
+    
     ll alice=0,bob=0;
     for(ll i=0; i<n; i++){
         if(i%2==0)alice+=a[i];
