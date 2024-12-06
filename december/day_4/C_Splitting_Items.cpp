@@ -19,12 +19,16 @@ void solve(){
     reverse(a,a+n);
     ll i=1;
     while(k>0 && i<n){
-        if(k>=(a[0]-a[i])){
-            a[i]+=(a[0]-a[i]);
-            k-=(a[0]-a[i]);
-        }else{
-            a[i]+=k;
-            k=0;
+        if(i%2==1){
+            ll sum=a[i-1]-a[i];
+            if(k>=(sum)){
+                a[i]+=(sum);
+                k-=(sum);
+            }else{
+                a[i]+=k;
+                k=0;
+                break;
+            }
         }
         i++;
     }
@@ -34,8 +38,7 @@ void solve(){
         if(i%2==0)alice+=a[i];
         else bob+=a[i];
     }
-    if(alice-bob>=0)cout<<alice-bob<<nl;
-    else cout<<0<<nl;
+    cout<<alice-bob<<endl;
 }
 int main(){
     FAST;
