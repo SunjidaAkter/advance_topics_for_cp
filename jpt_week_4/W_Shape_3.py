@@ -9,9 +9,6 @@ for i in range(n):
     for ll in range(2*l-1):
         print("*",end="")
     l+=1
-    # for jj in range(j):
-    #     print("*",end="")
-    # j+=1
     print()
 l=n
 k=0    
@@ -22,7 +19,4 @@ for i in range(n):
     for ll in range(2*l-1):
         print("*",end="")
     l-=1
-    # for jj in range(j):
-    #     print("*",end="")
-    # j+=1
     print()
