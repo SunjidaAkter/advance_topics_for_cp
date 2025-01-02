@@ -18,15 +18,6 @@ void solve(){
     ll ax,ay;cin>>ax>>ay;
     ll bx,by;cin>>bx>>by;
     ll cx,cy;cin>>cx>>cy;
-    // if((ax-bx<0 && ax-cx>0)||(ax-bx>0 && ax-cx<0)){
-    //     cout<<min(abs(ay-by),abs(ay-cy))+1<<nl;
-    //     return;
-    // }
-    // if((ay-by<0 && ay-cy>0)||(ay-by>0 && ay-cy<0)){
-    //     cout<<min(abs(ax-bx),abs(ax-cx))+1<<nl;
-    //     return;
-    // }
-    
     cout<<dist(ax,bx,cx)+dist(ay,by,cy)+1<<nl;
 }
 int main(){
