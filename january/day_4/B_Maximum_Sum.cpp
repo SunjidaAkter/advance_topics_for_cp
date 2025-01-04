@@ -11,17 +11,23 @@ using namespace std;
 typedef pair<ll,ll>pii;
 void solve(){
     ll n,k;cin>>n>>k;
-    vector<ll>a(n);
+    vector<ll>a(n+1);
     ll sum=0;
-    for(ll i=0;i<n;i++)cin>>a[i];
-    for(ll i=0;i<n;i++)sum+=a[i];
+    for(ll i=1;i<=n;i++)cin>>a[i];
     sort(all(a));
-    for(ll i=0;i<n;i++)cout<<a[i]<<" ";
-    ll s1=0,s2=0;
-    for(ll i=0;i<2*k;i++)s1+=a[i];
-    for(ll i=n-1;i>=n-k;i--)s2+=a[i];
-    ll mn=min(s1,s2);
-    cout<<sum-mn<<endl;
+    ll pref[n+1];
+    pref[1]=a[1];
+    pref[0]=0;
+    for(ll i=2;i<=n;i++)pref[i]=pref[i-1]+a[i];
+    // for(ll i=1;i<=n;i++)cout<<pref[i]<<" ";
+    // cout<<nl;
+    ll mx=0;
+    for(ll i=0;i<=k;i++){
+        mx=max(mx,pref[n-i]-pref[2*(k-i)]);
+        // cout<<pref[n-i]-pref[2*(k-i)]<<" mx ";
+    }
+    cout<<mx<<nl;
+ 
 }
 int main(){
     FAST;
