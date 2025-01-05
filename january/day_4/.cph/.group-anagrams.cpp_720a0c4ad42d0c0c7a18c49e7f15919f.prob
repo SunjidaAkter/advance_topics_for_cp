@@ -1,0 +1,1 @@
+{"name":"Local: group-anagrams","url":"f:\\Projects\\Phitron\\XPSC\\january\\day_4\\group-anagrams.cpp","tests":[{"id":1736098481766,"input":"6\neat tea tan ate nat bat","output":"bat \neat tea ate \ntan nat "}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\Projects\\Phitron\\XPSC\\january\\day_4\\group-anagrams.cpp","group":"local","local":true}
