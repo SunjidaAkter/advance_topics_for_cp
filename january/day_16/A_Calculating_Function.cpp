@@ -11,11 +11,8 @@ using namespace std;
 typedef pair<ll,ll>pii;
 void solve(){
     ll n;cin>>n;
-    ll sum=0;
-    for(ll i=1;i<=n;i++){
-        sum+=( i%2==1 ? -1 : 1)*i;
-    }
-    cout<<sum;
+    if(n%2==0)cout<<n/2;
+    else cout<<(((n-1)/2)-n);
 }
 int main(){
     FAST;
