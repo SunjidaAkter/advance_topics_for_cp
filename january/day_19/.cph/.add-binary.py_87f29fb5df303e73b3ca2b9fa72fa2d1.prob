@@ -1,0 +1,1 @@
+{"name":"Local: add-binary","url":"f:\\Projects\\Phitron\\XPSC\\january\\day_19\\add-binary.py","tests":[{"id":1737302006543,"input":"1 11","output":"100"},{"id":1737302198083,"input":"1010 1011","output":"10101"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\Projects\\Phitron\\XPSC\\january\\day_19\\add-binary.py","group":"local","local":true}
