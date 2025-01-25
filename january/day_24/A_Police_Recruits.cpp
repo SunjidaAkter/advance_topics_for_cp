@@ -17,17 +17,19 @@ void solve(){
         if(a[i]>0)a.pop_back();
         else break;
     }
-    ll sum=0,i=0;
-    while(a[i]<0){
-        sum++;i++;
+    ll sum=0,x=0;
+    for(ll i=0;i<a.size();i++){
+        x=a[i];
+        if(a[i]<0)sum++;
+        else{
+            i++;
+            while(x>0 && i<a.size()){
+                x+=a[i++];
+            }
+            i--;
+        }
     }
-    ll x=0;
-    for(ll j=i;j<a.size();j++){
-        // cout<<a[j]<<" ";
-        x+=a[j];
-    }
-    // cout<<x<<" "<<i<<nl;
-    cout<<abs(sum)+abs(x)<<nl;
+    cout<<sum<<nl;
 }
 int main(){
     FAST;
