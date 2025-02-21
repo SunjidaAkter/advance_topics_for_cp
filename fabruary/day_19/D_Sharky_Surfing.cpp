@@ -10,38 +10,31 @@ using namespace std;
 #define FAST ios_base :: sync_with_stdio (false) ; cin.tie(0) ; cout.tie(0)
 typedef pair<ll,ll>pii;
 void solve(){
-     int n, m, L;
-    cin >> n >> m >> L;
-    vector<int> l(n), r(n);
-    for (int i = 0; i < n; i++) {
-      cin >> l[i] >> r[i];
+  ll n,m,k,j=0,power=1;cin>>n>>m>>k;
+  vector<pii>a(n),b(m);
+  for(auto &x:a)cin>>x.first>>x.second;       
+  for(auto &x:b)cin>>x.first>>x.second;       
+  priority_queue<ll>pq;
+  for(ll i=0;i<n;i++){
+    while(j<m&&b[j].first<a[i].first){
+      pq.push(b[j].second);
+      j++;
     }
-    vector<int> x(m), v(m);
-    for (int i = 0; i < m; i++) {
-      cin >> x[i] >> v[i];
+    ll d=a[i].second-a[i].first+2;
+    while(pq.size()>0&&power<d){
+      power+=pq.top();
+      pq.pop();
     }
-    multiset<int> s;
-    int ptr = 0;
-    int k = 1;
-    int ans = 0;
-    for (int i = 0; i < n; i++) {
-      while (ptr < m && x[ptr] < l[i]) {
-        s.insert(v[ptr++]);
-      }
-      while (k <= r[i] - l[i] + 1) {
-        if (s.empty()) {
-          ans = -1;
-          break;
-        }
-        k += *prev(s.end());
-        s.erase(prev(s.end()));
-        ans += 1;
-      }
-      if (ans == -1) {
-        break;
-      }
+    if(power<d){
+      cout<<-1<<nl;
+      return;
     }
-    cout << ans << '\n';
+  }
+  while(j<m){
+    pq.push(b[j].second);
+    j++;
+  }
+  cout<<m-pq.size()<<nl;
 }
 int main(){
     FAST;
