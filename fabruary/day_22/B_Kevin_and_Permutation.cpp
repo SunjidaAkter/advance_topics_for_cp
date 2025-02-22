@@ -15,7 +15,6 @@ void solve(){
     for(ll i=1;i<=n;i++){
         cout<<(i%k?++cnt:i/k)<<" "; 
     }
-    // for(ll i=0;i<n;i++)cout<<v[i]<<" ";
     cout<<nl;
 }
 int main(){
