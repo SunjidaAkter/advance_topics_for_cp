@@ -26,6 +26,7 @@ void solve(){
         }
     }
     ll j=0;
+    
     if(k>0&&v){
         for(int i=0;i<n;++i){
             k--,j++;
