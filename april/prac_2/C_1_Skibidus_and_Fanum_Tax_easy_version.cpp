@@ -1,12 +1,17 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
-
-typedef long long ll;
-
-const ll INF = 1e18;
-
-void solve() {
-    int n, m;
+#define ll long long
+#define all(X) (X).begin(), (X).end()
+#define nl '\n'
+#define yes cout<<"YES"<<nl
+#define no cout<<"NO"<<nl
+#define Yes cout<<"Yes"<<nl
+#define No cout<<"No"<<nl
+#define FAST ios_base :: sync_with_stdio (false) ; cin.tie(0) ; cout.tie(0)
+typedef pair<ll,ll>pii;
+const ll INF=1e18;
+void solve(){
+    ll n, m;
     cin >> n >> m;
     vector<ll> a(n);
     for (int i = 0; i < n; i++) {
@@ -17,63 +22,46 @@ void solve() {
         cin >> b[i];
     }
     ll B = b[0];
-    
-    if (n == 0) {
-        cout << "YES\n";
-        return;
-    }
-    
-    ll prev_not = a[0];
+    ll prev = a[0];
     ll prev_flip = B - a[0];
-    
-    for (int i = 1; i < n; i++) {
-        ll current = a[i];
-        ll x = current;
-        ll y = B - current;
-        
-        ll new_not = -INF;
-        ll new_flip = -INF;
-        
-        // Check transitions from previous not flipped
-        if (prev_not != -INF) {
-            if (x >= prev_not) {
-                new_not = max(new_not, x);
+    for (ll i = 1; i < n; i++) {
+        ll cur = a[i];
+        ll x = cur;
+        ll y = B - cur;      
+        ll nn = -INF;
+        ll nflip = -INF;
+        if (prev != -INF) {
+            if (x >= prev) {
+                nn = max(nn, x);
             }
-            if (y >= prev_not) {
-                new_flip = max(new_flip, y);
+            if (y >= prev) {
+                nflip = max(nflip, y);
             }
         }
-        // Check transitions from previous flipped
         if (prev_flip != -INF) {
             if (x >= prev_flip) {
-                new_not = max(new_not, x);
+                nn = max(nn, x);
             }
             if (y >= prev_flip) {
-                new_flip = max(new_flip, y);
+                nflip = max(nflip, y);
             }
         }
+        prev = nn;
+        prev_flip = nflip;
         
-        prev_not = new_not;
-        prev_flip = new_flip;
-        
-        if (prev_not == -INF && prev_flip == -INF) {
-            cout << "NO\n";
+        if (prev == -INF && prev_flip == -INF) {
+            no;
             return;
         }
     }
-    
-    cout << ( (prev_not != -INF || prev_flip != -INF) ? "YES" : "NO" ) << "\n";
+    cout << ( (prev != -INF || prev_flip != -INF) ? "YES" : "NO" ) << "\n";
 }
-
-int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(0);
-    
-    int t;
-    cin >> t;
-    while (t--) {
+int main(){
+    FAST;
+    int t=1;
+    cin>>t;
+    while(t--){
         solve();
     }
-    
     return 0;
 }
