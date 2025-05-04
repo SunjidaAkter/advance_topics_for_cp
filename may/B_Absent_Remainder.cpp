@@ -9,20 +9,14 @@ using namespace std;
 #define No cout<<"No"<<nl
 #define FAST ios_base :: sync_with_stdio (false) ; cin.tie(0) ; cout.tie(0)
 typedef pair<ll,ll>pii;
-bool isSquare(int x) {
-    int y = (int)(sqrt(x));
-    while(y * y < x) y++;
-    while(y * y > x) y--;
-    return y * y == x;
-}
 void solve(){
     ll n;cin>>n;
-    if(n%2==1){
-        no;return;
+    vector<ll>a(n);
+    for(ll i=0;i<n;i++)cin>>a[i];
+    sort(all(a));
+    for(ll i=1;i<n/2+1;i++){
+        if(a[i]!=a[0])cout<<a[i]<<" "<<a[0]<<nl;
     }
-    n/=2;
-    if(isSquare(n)||(n%2==0&&isSquare(n/2)))yes;
-    else no;
 }
 int main(){
     FAST;
