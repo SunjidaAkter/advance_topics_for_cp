@@ -25,7 +25,7 @@ void solve(){
             if(!prime[(s[i]-'0')*10+(s[j]-'0')]){
                 cout<<2<<nl;
                 cout<<s[i]<<s[j]<<nl;
-                
+                return;
             }
         }
     }
