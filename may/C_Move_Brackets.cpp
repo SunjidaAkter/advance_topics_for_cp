@@ -11,28 +11,19 @@ using namespace std;
 typedef pair<ll,ll>pii;
 void solve(){
     ll n;cin>>n;
-    ll a[n][5];
+    string s;cin>>s;
+    stack<char>st;
+    ll cnt=0;
     for(ll i=0;i<n;i++){
-        for(ll j=0;j<5;j++)cin>>a[i][j];
-    }
-    bool res=0;
-    for(ll i=0;i<5;i++){
-        for(ll j=0;j<5;j++){
-            if(i!=j){
-                ll cnt1=0;
-                ll cnt2=0;
-                ll cnt0=0;
-                for(ll k=0;k<n;k++){
-                    if(a[k][i]==1)cnt1++;
-                    if(a[k][j]==1)cnt2++;
-                    if(a[k][i]==0&&a[k][j]==0)cnt0++;
-                }
-                if(cnt1>=n/2&&cnt2>=n/2&&cnt0==0)res=1;
+        if(s[i]=='(')st.push(s[i]);
+        else{
+            if(st.size()>0)st.pop();
+            else{
+                cnt++;
             }
         }
     }
-    if(res)yes;
-    else no;
+    cout<<cnt<<nl;
 }
 int main(){
     FAST;
