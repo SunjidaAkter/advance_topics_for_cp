@@ -1,1 +1,0 @@
-{"name":"Local: Easy_Math","url":"f:\\Projects\\Phitron\\XPSC\\week_1\\day_4\\Easy_Math.cpp","tests":[{"id":1696306997582,"input":"3\n2\n2 8\n3\n8 2 8\n3\n9 10 11","output":"7\n10\n18"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\Projects\\Phitron\\XPSC\\week_1\\day_4\\Easy_Math.cpp","group":"local","local":true}

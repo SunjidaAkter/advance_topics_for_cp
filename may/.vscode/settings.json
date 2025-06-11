@@ -1,9 +1,0 @@
-{
-  "files.associations": {
-    "*.dbclient-js": "javascript",
-    "*.sqlbook": "sql",
-    "*.ndjson": "jsonl",
-    "numeric": "cpp",
-    "iostream": "cpp"
-  }
-}

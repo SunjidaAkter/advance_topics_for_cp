@@ -1,1 +1,0 @@
-{"name":"Local: new","url":"f:\\Projects\\Phitron\\XPSC\\week_1\\new.cpp","tests":[{"id":1696043796118,"input":"6\n5 2 6 1 3 4\n3","output":"13"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\Projects\\Phitron\\XPSC\\week_1\\new.cpp","group":"local","local":true}

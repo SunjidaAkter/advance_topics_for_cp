@@ -1,1 +1,0 @@
-{"name":"Local: permutation-in-string","url":"f:\\Projects\\Phitron\\XPSC\\january\\day_8\\permutation-in-string.cpp","tests":[{"id":1736321735619,"input":"adc\ndcda","output":"YES"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\Projects\\Phitron\\XPSC\\january\\day_8\\permutation-in-string.cpp","group":"local","local":true}

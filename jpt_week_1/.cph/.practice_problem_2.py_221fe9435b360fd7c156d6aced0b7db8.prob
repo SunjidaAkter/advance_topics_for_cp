@@ -1,1 +1,0 @@
-{"name":"Local: practice_problem_2","url":"f:\\Projects\\Phitron\\XPSC\\jpt_week_1\\practice_problem_2.py","tests":[{"id":1734186058774,"input":"5 2","output":"5 + 2 = 7\n5 - 2 = 3\n5 * 2 = 10\n5 / 2 = 2.50"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\Projects\\Phitron\\XPSC\\jpt_week_1\\practice_problem_2.py","group":"local","local":true}
