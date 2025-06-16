@@ -34,19 +34,31 @@ void solve(){
         cout<<a[0]<<" "<<a[0]<<" "<<a[1]<<" "<<a[1]<<" "<<nl;
     }else{
         sort(all(v));
-        if(mp[a[0]]==4){
+        if(mp[a[0]]>=4){
             cout<<a[0]<<" "<<a[0]<<" "<<a[0]<<" "<<a[0]<<nl;
             // return;
         }else if(mp[a[0]]==2){
             ll x=v[0];
-            // cout<<x<<"nl";
-            for(ll i=1;i<n;i++){
-                if(x==a[0]||v[i]==a[0]){x=v[i];continue;}
-                else{
-                    if(v[i]-x<2*a[0]){
-                        cout<<a[0]<<" "<<a[0]<<" "<<x<<" "<<v[i]<<nl;
-                        return;
-                    }else x=v[i];
+            if(x==a[0]){
+                x=v[2];
+                for(ll i=3;i<n;i++){
+                    if(x==a[0]||v[i]==a[0]){continue;}
+                    else{
+                        if(v[i]-x<2*a[0]){
+                            cout<<a[0]<<" "<<a[0]<<" "<<x<<" "<<v[i]<<nl;
+                            return;
+                        }else x=v[i];
+                    }
+                }
+            }else{
+                for(ll i=1;i<n;i++){
+                    if(x==a[0]||v[i]==a[0]){continue;}
+                    else{
+                        if(v[i]-x<2*a[0]){
+                            cout<<a[0]<<" "<<a[0]<<" "<<x<<" "<<v[i]<<nl;
+                            return;
+                        }else x=v[i];
+                    }
                 }
             }
             cout<<-1<<nl;
@@ -55,6 +67,29 @@ void solve(){
                 if(a[0]!=v[i]&&v[i]<3*a[0]){
                     cout<<a[0]<<" "<<a[0]<<" "<<a[0]<<" "<<v[i]<<nl;
                     return;
+                }
+            }
+            ll x=v[0];
+            if(x==a[0]){
+                x=v[3];
+                for(ll i=4;i<n;i++){
+                    if(x==a[0]||v[i]==a[0]){continue;}
+                    else{
+                        if(v[i]-x<2*a[0]){
+                            cout<<a[0]<<" "<<a[0]<<" "<<x<<" "<<v[i]<<nl;
+                            return;
+                        }else x=v[i];
+                    }
+                }
+            }else{
+                for(ll i=1;i<n;i++){
+                    if(x==a[0]||v[i]==a[0]){continue;}
+                    else{
+                        if(v[i]-x<2*a[0]){
+                            cout<<a[0]<<" "<<a[0]<<" "<<x<<" "<<v[i]<<nl;
+                            return;
+                        }else x=v[i];
+                    }
                 }
             }
             cout<<-1<<nl;
