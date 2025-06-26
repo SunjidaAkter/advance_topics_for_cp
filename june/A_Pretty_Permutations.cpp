@@ -13,6 +13,7 @@ void solve(){
     ll n;cin>>n;
     vector<ll>v;
     if(n%2==1){
+        
         v.push_back(3);
         v.push_back(1);
         v.push_back(2);
