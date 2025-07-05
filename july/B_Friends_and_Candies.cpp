@@ -21,6 +21,7 @@ void solve(){
         for(ll i=0;i<n;i++){
             if(v[i]>(sum/n))cnt++;
         }
+        
         cout<<cnt<<nl;
     }
 }
