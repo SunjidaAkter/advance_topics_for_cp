@@ -12,15 +12,23 @@ typedef pair<ll,ll>pii;
 void solve(){
     ll n;cin>>n;
     string s;cin>>s;
-    ll x;
+    ll x=-1;
     if(n==1&&s[0]=='?'){
         cout<<'B'<<nl;
         return;
-    }
+    }  
     for(ll i=0;i<n;i++){
         if(s[i]!='?'){
             x=i;break;
         }
+    }
+    if(x==-1){
+        for(ll i=0;i<n;i++){
+            if(i%2==0)cout<<'B';
+            else cout<<'R';
+        }
+        cout<<nl;
+        return;
     }
     for(ll i=x-1;i>=0;i--){
         if(s[i+1]=='R'&&s[i]=='?')s[i]='B';
