@@ -12,7 +12,7 @@ typedef pair<ll,ll>pii;
 void solve(){
     string s; cin >> s;
     map<char,ll>mp;
-    for(char c : s)mp[c]++;
+    for(char c:s)mp[c]++;
     ll odd=0, even=0;
     for(auto it : mp){
         if(it.second >=2) even++;
