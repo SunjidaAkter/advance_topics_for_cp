@@ -10,6 +10,7 @@ using namespace std;
 #define FAST ios_base :: sync_with_stdio (false) ; cin.tie(0) ; cout.tie(0)
 typedef pair<ll,ll>pii;
 void solve(){
+
     ll n,c;cin>>n>>c;
     vector<ll>v(n);
     for(ll i=0;i<n;i++) cin>>v[i];
