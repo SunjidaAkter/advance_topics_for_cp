@@ -19,6 +19,7 @@ void solve(){
     ll cnt=1,sum=0;
     for(ll i=0;i<n;i++){
         if(v[i]*cnt<=c){
+            
             sum++;
             cnt*=2;
         }
