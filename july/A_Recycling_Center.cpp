@@ -11,6 +11,7 @@ using namespace std;
 typedef pair<ll,ll>pii;
 void solve(){
 
+    
     ll n,c;cin>>n>>c;
     vector<ll>v(n);
     for(ll i=0;i<n;i++) cin>>v[i];
