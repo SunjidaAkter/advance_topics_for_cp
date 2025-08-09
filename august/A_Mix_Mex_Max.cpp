@@ -27,7 +27,7 @@ void solve(){
         return;
     }
     for(ll i=0;i<v.size()-1;i++){
-        if(v[i]!=v[i+1]||v[i]==0){
+        if(v[i]==0||v[i]!=v[i+1]){
             no;return;
         }
     }
