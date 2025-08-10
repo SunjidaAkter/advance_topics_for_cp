@@ -24,6 +24,7 @@ void solve(){
     }
     if(v.size()==1&&v[0]==0){
         no;
+        
         return;
     }
     for(ll i=0;i<v.size()-1;i++){
