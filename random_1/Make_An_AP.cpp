@@ -9,6 +9,13 @@ using namespace std;
 #define No cout<<"No"<<nl
 #define FAST ios_base :: sync_with_stdio (false) ; cin.tie(0) ; cout.tie(0)
 typedef pair<ll,ll>pii;
+ll gcd(vector<ll>&a){
+    ll g=0;
+    for(int i=0;i<a.size();i++){
+        g=__gcd(g,a[i]);
+    }
+    return g;
+}
 void solve(){
     ll n;cin>>n;
     vector<ll>a(n);
@@ -20,8 +27,9 @@ void solve(){
         diff.push_back(a[i]-a[i-1]);
     }
     sort(all(diff));
-    ll d=diff[0],sum=0;
-    for(ll i=1;i<diff.size();i++){
+    ll d=gcd(diff);
+    ll sum=0;
+    for(ll i=0;i<diff.size();i++){
         if(diff[i]>d){
             sum+=((diff[i]/d)-1);
         }
