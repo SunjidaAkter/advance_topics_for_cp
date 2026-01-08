@@ -9,33 +9,18 @@ using namespace std;
 #define No cout<<"No"<<nl
 #define FAST ios_base :: sync_with_stdio (false) ; cin.tie(0) ; cout.tie(0)
 typedef pair<ll,ll>pii;
-const ll N=1e7+5;
 void solve(){
     ll n;cin>>n;
-    vector<ll>v(n+1,0);
-    for(ll i=1;i<N;i++){
-        if(i*i*2>n)break;
-        for(ll j=i+1;j<N;j++){
-            if(j*j+i*i>n)break;
-            v[j*j+i*i]++;
-        }
-    }
-    vector<ll>ans;
-    for(ll i=0;i<=n;i++){
-        if(v[i]==1){
-            ans.push_back(i);
-        }
-    }
-    cout<<ans.size()<<nl;
-    if(ans.size()){
-        for(auto x:ans)cout<<x<<" ";
-        cout<<nl;
-    }
+    vector<ll>a(n);
+    for(ll i=0;i<n;i++)cin>>a[i];
+    if(a[0]==0&&a[n-1]==0){
+        cout<<"Bob"<<nl;
+    }else cout<<"Alice"<<nl; 
 }
 int main(){
     FAST;
     int t=1;
-    // cin>>t;
+    cin>>t;
     while(t--){
         solve();
     }
