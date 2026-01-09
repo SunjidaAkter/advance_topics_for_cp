@@ -9,6 +9,13 @@ using namespace std;
 #define No cout<<"No"<<nl
 #define FAST ios_base :: sync_with_stdio (false) ; cin.tie(0) ; cout.tie(0)
 typedef pair<ll,ll>pii;
+/*
+*সব step simulate না করে
+*শেষে কে unchosen থাকবে সেটা fix করে চিন্তা করলে problem সহজ হয়।
+
+*👉 অনেক problem-এ brute force না করে
+*final configuration ধরে চিন্তা করা দরকার।
+*/
 void solve(){
     ll n;cin>>n;
     vector<ll>a(n);
