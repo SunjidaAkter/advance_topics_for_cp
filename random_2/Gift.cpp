@@ -11,27 +11,26 @@ using namespace std;
 typedef pair<ll,ll>pii;
 void solve(){
     ll n;cin>>n;
-    vector<vector<ll>>v(2,vector<ll>(n));
-    for(ll i=0;i<2;i++){
-        for(ll j=0;j<n;j++){
-            cin>>v[i][j];
+    vector<vector<ll>>v(n);
+    for(ll i=0;i<n;i++){
+        ll x;cin>>x;
+        v[i].resize(x);
+        for(ll j=0;j<x;j++)cin>>v[i][j];
+    }
+    vector<vector<ll>>ans(n);
+    for(ll i=0;i<n;i++){
+        ll m=v[i].size();
+        for(ll j=0;j<m;j++){
+            ans[v[i][j]-1].push_back(i);
         }
     }
-    ll sum=0,mx=0;
     for(ll i=0;i<n;i++){
-        sum+=v[0][i];
-        mx=max(mx,sum+v[1][i]);
-    }
-    sum=0;
-    for(ll i=0;i<n;i++){
-        sum+=v[0][i];
-        ll tmp=sum;
-        for(ll j=i;j<n;j++){
-            tmp+=v[1][j];
+        cout<<ans[i].size()<<" ";
+        for(ll j=0;j<ans[i].size();j++){
+            cout<<ans[i][j]+1<<" ";
         }
-        mx=max(mx,tmp);
+        cout<<nl;
     }
-    cout<<mx<<nl;
 }
 int main(){
     FAST;
