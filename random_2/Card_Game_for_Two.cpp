@@ -10,17 +10,17 @@ using namespace std;
 #define FAST ios_base :: sync_with_stdio (false) ; cin.tie(0) ; cout.tie(0)
 typedef pair<ll,ll>pii;
 void solve(){
-    ll n,a,b;cin>>n>>a>>b;
+    ll n;cin>>n;
+    vector<ll>a(n);
+    for(ll i=0;i<n;i++)cin>>a[i];
+    sort(a.rbegin(),a.rend());
     ll sum=0;
-    for(int i=1;i<=n;i++){
-        ll temp=i;
-        ll s=0;
-        while(temp>0){
-            s+=temp%10;
-            temp/=10;
+    for(ll i=0;i<n;i+=2){
+        if (i+1<n){
+            sum+=abs(a[i]-a[i+1]);
         }
-        if(a<=s && s<=b)sum+=i;
     }
+    if(n%2)sum+=a[n-1];
     cout<<sum<<nl;
 }
 int main(){

@@ -10,16 +10,23 @@ using namespace std;
 #define FAST ios_base :: sync_with_stdio (false) ; cin.tie(0) ; cout.tie(0)
 typedef pair<ll,ll>pii;
 void solve(){
-    ll n,a,b;cin>>n>>a>>b;
+    ll n,k;cin>>n>>k;
+    vector<ll>v(n);
+    for(ll i=0;i<n;i++)cin>>v[i];
+    map<ll,ll>mp;
+    for(ll i=0;i<n;i++){
+        mp[v[i]]++;
+    }
+    vector<ll>ans;
+    for(auto &it:mp){
+        ans.push_back(it.second);
+    }
+    sort(all(ans));
     ll sum=0;
-    for(int i=1;i<=n;i++){
-        ll temp=i;
-        ll s=0;
-        while(temp>0){
-            s+=temp%10;
-            temp/=10;
-        }
-        if(a<=s && s<=b)sum+=i;
+    ll m=ans.size();
+    
+    for(ll i=0;i<m-k;i++){
+        sum+=ans[i];
     }
     cout<<sum<<nl;
 }
