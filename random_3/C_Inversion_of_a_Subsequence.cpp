@@ -10,29 +10,29 @@ using namespace std;
 #define FAST ios_base :: sync_with_stdio (false) ; cin.tie(0) ; cout.tie(0)
 typedef pair<ll,ll>pii;
 void solve(){
-    ll n,d;cin>>n>>d;
-    vector<pii>v(n);
+    ll n;cin>>n;
+    vector<ll>a(n);
+    for(ll i=0;i<n;i++)cin>>a[i];
+    vector<ll>b(n);
+    for(ll i=0;i<n;i++)cin>>b[i];
+    ll cnt0=0,cnt1=0,sum=0,cnt=0;
+    for(ll i=0;i<n;i++)if(a[i]==0)cnt0++;
+    for(ll i=0;i<n;i++)if(b[i]==1)cnt1++;
     for(ll i=0;i<n;i++){
-        ll x,y;cin>>x>>y;
-        v[i]={x,y};
-    }
-    sort(all(v));
-    ll sum=0,mx=0,j=0;
-    for(ll i=0;i<n;i++){
-        while(abs(v[j].first-v[i].first)>=d){
-            sum-=v[j].second;
-            j++;
-
+        if(a[i]!=b[i]){
+            if(a[i]==1)sum++;
+            cnt++;
         }
-        sum+=v[i].second;
-        mx=max(mx,sum);
     }
-    cout<<mx<<nl;
+    if(cnt==0)cout<<0<<nl;
+    else if(cnt0==n||cnt1==n){cout<<-1<<nl;return;}
+    else if(sum%2==0)cout<<2<<nl;
+    else cout<<1<<nl;
 }
 int main(){
     FAST;
     int t=1;
-    // cin>>t;
+    cin>>t;
     while(t--){
         solve();
     }
