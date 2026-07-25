@@ -11,21 +11,21 @@ using namespace std;
 typedef pair<ll,ll>pii;
 void solve(){
     ll n,m;cin>>n>>m;
-    multiset<ll>st;
+    vector<ll>a(n);
+    vector<ll>b(n);
+    for(ll i=0;i<n;i++)cin>>a[i];
+    for(ll i=0;i<n;i++)cin>>b[i];
+    vector<pii>v(n);
     for(ll i=0;i<n;i++){
-        ll x;cin>>x;
-        st.insert(x);
+        v[i]={a[i]-b[i],i};
     }
-    for(ll i=0;i<m;i++){
-        ll x;cin>>x;
-        auto idx=st.upper_bound(x);
-        if(idx==st.begin())cout<<-1<<nl;
-        else{
-            idx--;
-            cout<<*idx<<nl;
-            st.erase(idx);
-        }
+    sort(all(v));
+    ll sum=0;
+    for(ll i=0;i<n;i++){
+        if(v[i].first<0||i<m)sum+=a[v[i].second];
+        else sum+=b[v[i].second];
     }
+    cout<<sum<<nl;
 }
 int main(){
     FAST;

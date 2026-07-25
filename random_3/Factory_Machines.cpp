@@ -9,23 +9,28 @@ using namespace std;
 #define No cout<<"No"<<nl
 #define FAST ios_base :: sync_with_stdio (false) ; cin.tie(0) ; cout.tie(0)
 typedef pair<ll,ll>pii;
+bool check(vector<ll>&v,ll m,ll mid){
+    ll cnt=0;
+    for(ll i=0;i<v.size();i++){
+        ll tmp=mid/v[i];
+        cnt+=tmp;
+        if(cnt>=m)return true;
+    }
+    return cnt>=m;
+}
 void solve(){
     ll n,m;cin>>n>>m;
-    multiset<ll>st;
-    for(ll i=0;i<n;i++){
-        ll x;cin>>x;
-        st.insert(x);
+    vector<ll>v(n);
+    for(ll i=0;i<n;i++)cin>>v[i];
+    ll l=0,r=1e18,ans=0;
+    while(l<=r){
+        ll mid=l+(r-l)/2;
+        if(check(v,m,mid)){
+            ans=mid;
+            r=mid-1;
+        }else l=mid+1;
     }
-    for(ll i=0;i<m;i++){
-        ll x;cin>>x;
-        auto idx=st.upper_bound(x);
-        if(idx==st.begin())cout<<-1<<nl;
-        else{
-            idx--;
-            cout<<*idx<<nl;
-            st.erase(idx);
-        }
-    }
+    cout<<ans<<nl;
 }
 int main(){
     FAST;

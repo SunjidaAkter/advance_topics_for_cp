@@ -10,22 +10,24 @@ using namespace std;
 #define FAST ios_base :: sync_with_stdio (false) ; cin.tie(0) ; cout.tie(0)
 typedef pair<ll,ll>pii;
 void solve(){
-    ll n,m;cin>>n>>m;
-    multiset<ll>st;
-    for(ll i=0;i<n;i++){
-        ll x;cin>>x;
-        st.insert(x);
+    ll n;cin>>n;
+    vector<ll>a(n);
+    for(ll i=0;i<n;i++)cin>>a[i];
+    sort(all(a));
+    ll m;cin>>m;
+    vector<ll>b(m);
+    for(ll i=0;i<m;i++)cin>>b[i];
+    sort(all(b));
+    ll i=0,j=0,cnt=0,chk=1;
+    while(i<n&&j<m){
+        if(abs(a[i]-b[j])<=1){
+            cnt++;
+            i++;
+            j++;
+        }else if(a[i]<b[j])i++;
+        else j++;
     }
-    for(ll i=0;i<m;i++){
-        ll x;cin>>x;
-        auto idx=st.upper_bound(x);
-        if(idx==st.begin())cout<<-1<<nl;
-        else{
-            idx--;
-            cout<<*idx<<nl;
-            st.erase(idx);
-        }
-    }
+    cout<<cnt<<nl;
 }
 int main(){
     FAST;

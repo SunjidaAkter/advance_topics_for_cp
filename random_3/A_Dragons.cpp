@@ -11,13 +11,18 @@ using namespace std;
 typedef pair<ll,ll>pii;
 void solve(){
     ll n,s;cin>>s>>n;
+    vector<pii>v(n);
     for(ll i=0;i<n;i++){
         ll x,y;cin>>x>>y;
-        if(x>s){
+        v[i]={x,y};
+    }
+    sort(all(v));
+    for(ll i=0;i<n;i++){
+        if(v[i].first>=s){
             no;
             return;
         }else{
-            s+=y;
+            s+=v[i].second;
         }
     }
     yes;
