@@ -10,13 +10,23 @@ using namespace std;
 #define FAST ios_base :: sync_with_stdio (false) ; cin.tie(0) ; cout.tie(0)
 typedef pair<ll,ll>pii;
 void solve(){
-    ll n,m,x,y;cin>>n>>m>>x>>y;
-    cout<<1<<" "<<1<<" "<<n<<" "<<m<<nl;
+    ll n;cin>>n;
+    vector<ll>a(n);
+    for(ll i=0;i<n;i++)cin>>a[i];
+    vector<ll>b(n);
+    for(ll i=0;i<n;i++)cin>>b[i];
+    vector<ll>v;
+    ll cnt=0;
+    for(ll i=1;i<=n;i++)v.push_back(i);
+    do{
+        if(a<v&&v<b)cnt++;
+    }while(next_permutation(v.begin(), v.end()));
+    cout<<cnt<<nl;
 }
 int main(){
     FAST;
     int t=1;
-    cin>>t;
+    // cin>>t;
     while(t--){
         solve();
     }
