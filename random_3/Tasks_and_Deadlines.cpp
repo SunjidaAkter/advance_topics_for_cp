@@ -16,14 +16,8 @@ void solve(){
     for(ll i=0;i<n;i++){
         ll x,y;cin>>x>>y;
         v[i]={x,y};
-        // a[i]={y-x,i};
     }
-    // sort(v.rbegin(),v.rend());
     sort(all(v));
-    // reverse(all(v));
-    // for(auto &x:a){
-    //     cout<<x.first<<" "<<x.second<<nl;
-    // }
     ll sum=0,ans=0;
     for(ll i=0;i<n;i++){
         sum+=v[i].first;
