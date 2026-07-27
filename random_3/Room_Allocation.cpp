@@ -19,28 +19,24 @@ void solve(){
     sort(all(v));
     priority_queue<pii, vector<pii>, greater<pii>> q;
     ll cnt=1,mx=1;
-    vector<pii>ans;
+    vector<ll>ans(n);
     q.push({v[0].first.second,cnt});
-    ans.push_back({v[0].second,q.top().second});
+    ans[v[0].second-1]=q.top().second;
     for(ll i=1;i<n;i++){
         if(q.top().first<v[i].first.first){
             ll curr=q.top().second;
-            ans.push_back({v[i].second,curr});
+            ans[v[i].second-1]=curr;
             q.pop();
             q.push({v[i].first.second,curr});
-            // cout<<ans.back()<<" + ";
         }else{
             cnt++;
-            ans.push_back({v[i].second,cnt});
+            ans[v[i].second-1]=cnt;
             q.push({v[i].first.second,cnt});
-            // cout<<ans.back()<<" x ";
         }
         mx=max((ll)q.size(),mx);
     }   
-    sort(all(ans));
     cout<<mx<<nl;
-    for(auto &x:ans)cout<<x.second<<" ";
-    cout<<nl;                 
+    for(auto &x:ans)cout<<x<<" ";
 }
 int main(){
     FAST;
